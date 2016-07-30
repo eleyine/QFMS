@@ -499,11 +499,11 @@ msgstr "Hâte de te voir à WearHacks"
 msgid "WearHacks Montreal Team <montreal@wearhacks.com>"
 msgstr "Équipe WearHacks à Montréal <montreal@wearhacks.com>"
 
-#: wearhacks_website/settings/common.py:278
+#: smf_website/settings/common.py:278
 msgid "English"
 msgstr ""
 
-#: wearhacks_website/settings/common.py:279
+#: smf_website/settings/common.py:279
 msgid "French"
 msgstr ""
 

@@ -7,6 +7,21 @@ from pytz import timezone
 from django.core.validators import RegexValidator
 from event.helpers import get_profile_pic_filename, get_image_filename
 
+class SocialMediaAccount(models.Model):
+	username = models.CharField(max_length=30)
+	url = models.URLField(max_length=100, blank=True)
+
+	ACCOUNT_TYPE_CHOICES = (
+		('em', 'email'),
+		('wb', 'website'),
+		('tw', 'twitter'),
+		('fb', 'facebook'),
+		('gh', 'github'),
+		('ln', 'linkedin')
+		)
+
+	account_types = models.CharField(max_length=2,
+		choices = ACCOUNT_TYPE_CHOICES)
 
 class PrizePerk(models.Model):
     rank = models.IntegerField(
@@ -50,70 +65,13 @@ class Prize(models.Model):
     def __unicode__(self):
         return '%i: %s' % (self.rank, self.title)
 
-class Workshop(models.Model):
-    moderators = models.ManyToManyField('Person')
-
-    title = models.CharField(max_length=300)
-    description = models.TextField(blank=True)
-
-    location = models.CharField(max_length=300, blank=True)
-    time = models.DateTimeField()
-    duration = models.IntegerField(default=60, 
-        help_text='In minutes.')
-
-    IMAGE_FOLDER = 'workshops'
-    showcase_image = models.ImageField(
-        upload_to=get_image_filename,
-        help_text="Please make sure it's a transparent image (png).",
-        blank=True)
-
-    @property
-    def all_moderators(self):
-        return self.moderators.all()
-
-    @property
-    def human_readable_time_slot(self):
-        start_time = self.time
-        end_time = self.time + datetime.timedelta(0,self.duration*60)
-        # convert times to local timezone
-        eastern = timezone('US/Eastern')
-        start_time = start_time.astimezone(eastern)        
-        end_time = end_time.astimezone(eastern)        
-
-        readable_time = '%s %s' % (
-            datetime.datetime.strftime(start_time, '%A %I:%M%p - '),
-            datetime.datetime.strftime(end_time, '%I:%M%p'),
-        )
-        return readable_time
-
-    class Meta:
-        ordering = ('time',)
-
-    def __unicode__(self):
-        return self.title
-
-class Sponsor(models.Model):
-    CATEGORIES = (
-        ('ST', _('Local Standard')),
-        ('PR', _('Local Premium')),
-        ('CM', _('Community')),
-        ('PA', _('Partner')),
-        ('GS', _('Global Standard')),
-        ('GH', _('Global Premium')),
-    )
+class Company(models.Model):
     name = models.CharField(max_length=100)
-    category = models.CharField(max_length=2, 
-        choices=CATEGORIES, 
-        default=CATEGORIES[0][0],
-        )
-    IMAGE_FOLDER = 'sponsors'
+    IMAGE_FOLDER = 'companies'
     image = models.ImageField(
         upload_to=get_image_filename,
         help_text="Please make sure it's a transparent image (png).")
     url = models.URLField(blank=True)
-
-    def get_verbose_category(self):
-        return dict(CATEGORIES)[self.category]
 
     def __unicode__(self):
         return self.name
@@ -209,3 +167,26 @@ class Person(models.Model):
     def __unicode__(self):
         return self.full_name()
 
+class Place(models.Model):
+    address = models.ForeignKey('Address', null=True)
+    short_display_name = models.CharField(max_length=100)
+
+    website = models.URLField(max_length=200, blank=True)
+    
+    latitude = models.IntegerField(default=0,
+        help_text="For Google Maps")
+    longitude = models.IntegerField(default=0,
+        help_text="For Google Maps")
+
+    def __unicode__(self):
+        return short_display_name
+
+class Address(models.Model):
+    num = models.IntegerField()
+    street = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    province = models.CharField(max_length=2)
+    zipcode = models.CharField(max_length=6)
+
+    def __unicode__(self):
+        return '%i %s, %s, %s' % (self.num, self.street, self.city, self.province) 

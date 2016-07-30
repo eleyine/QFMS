@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 
-from wearhacks_website import views
+from smf_website import views
 
 from django.contrib import admin
 from registration.views import register

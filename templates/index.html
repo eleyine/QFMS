@@ -3,23 +3,30 @@
 {% load staticfiles %}
 
 {% block content %}
-    {% include "navigation.html" %}
+    {% include "navigation.html" with page=page %}
+    {% for section in sections %}
+        {% include section.template with section=section %}
+    <!-- <p> {{section.title}}</p> -->
+    {% empty %}
+    <p> No sections yet ! </p>
+    {% endfor %}
+    {% comment %}
     {% include "header.html" %}
     {% include "about.html" %}
-    {% include "hardware.html" %}
+    {% include "perks.html" %}
+    {% include "talks.html" %}
+    {% include "schedule.html" %}
     {% include "sponsors.html" %}
     {% include "partners.html" %}
     {% include "social.html" %}
-    {% include "prizes.html" %}
-    {% include "judges.html" %}
-    {% include "mentors.html" %}
     {% include "faq.html" %}
-    {% include "schedule.html" %}
     {% include "workshops.html" %}
     {% include "venue.html" %}
     {% include "organizers.html" %}
     {% include "contact.html" %}
     {% include "footer.html" %}
+    {% endcomment %}
+
 {% endblock %}
 
 {% block scripts %}

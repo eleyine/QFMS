@@ -1,1 +1,1 @@
-web: gunicorn wearhacks_website.wsgi --log-file -
+web: gunicorn smf_website.wsgi --log-file -

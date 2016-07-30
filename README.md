@@ -25,7 +25,7 @@ $ workon wearhacks-website
 (wearhacks-website) $ ./setup.sh
 ```
 
-**Note**: `setup.sh` will copy `example_private_settings.py` to `private.py`. If you are on your local machine in dev mode, there's no need to edit it. However, if you'd like to deploy, *please update `wearhacks_website/settings/private.py` with your sensitive and deployment-specific settings*.
+**Note**: `setup.sh` will copy `example_private_settings.py` to `private.py`. If you are on your local machine in dev mode, there's no need to edit it. However, if you'd like to deploy, *please update `smf_website/settings/private.py` with your sensitive and deployment-specific settings*.
 
 **Manual install: what's in `setup.sh`?**
 
@@ -36,7 +36,7 @@ $ mkvirtualenv wearhacks-website
 $ workon wearhacks-website
 (wearhacks-website) $ pip install -r requirements.txt
 (wearhacks-website) $ bower install
-(wearhacks-website) $ cp wearhacks_website/settings/example_private_settings.py wearhacks_website/settings/private.py
+(wearhacks-website) $ cp smf_website/settings/example_private_settings.py smf_website/settings/private.py
 (wearhacks-website) $ python manage.py makemigrations
 (wearhacks-website) $ python manage.py migrate
 (wearhacks-website) $ python manage.py generate_registrations 3
@@ -62,11 +62,11 @@ Now, open <http://127.0.0.1:8000/>.
     (wearhacks-website) $ python manage.py runserver
     ```
 
-* You can edit `wearhacks_settings/settings/private.py` to enter sensitive and user-specific settings. All settings in `private.py` will override those defined in `dev.py` and `prod.py`. See `wearhacks_website/settings/__init__.py` for more information.
+* You can edit `wearhacks_settings/settings/private.py` to enter sensitive and user-specific settings. All settings in `private.py` will override those defined in `dev.py` and `prod.py`. See `smf_website/settings/__init__.py` for more information.
 
 ## Stripe settings
 
-The registration app handles payment via [Stripe](https://stripe.com). To test this feature, edit in your Stripe API keys in your private settings files (`wearhacks_website/*private.py`).
+The registration app handles payment via [Stripe](https://stripe.com). To test this feature, edit in your Stripe API keys in your private settings files (`smf_website/*private.py`).
 
 ## Deployment on Digital Ocean
 
@@ -76,9 +76,9 @@ Here are the setup instructions if you choose to do it with Digital Ocean.
 
 * Create a Digital Ocean droplet with a Django installation image
 * Ssh into your droplet to obtain the postgresql database password. It will be displayed in the welcome message. 
-* Copy `wearhacks_website/settings/private.py` to `wearhacks_website/settings/server_private.py` and uncomment the postgresql settings. Edit in your postgresql password from the step above.
+* Copy `smf_website/settings/private.py` to `smf_website/settings/server_private.py` and uncomment the postgresql settings. Edit in your postgresql password from the step above.
 
 * Make sure you have fabric installed locally. If you ran `setup.sh`, you already have it.
-* In `wearhacks_website/server_files/`, copy `fab_config_example.py` and rename it to `fab_config.py`. Edit in in your deployment host address.
+* In `smf_website/server_files/`, copy `fab_config_example.py` and rename it to `fab_config.py`. Edit in in your deployment host address.
 * Then in `server_files`, run `fab all`
 * If you'd like a list of fab commands, run `fab -l`

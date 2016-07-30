@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from os.path import join, normpath
 from os import environ
 
-from wearhacks_website.settings.common import DJANGO_ROOT
+from smf_website.settings.common import DJANGO_ROOT
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/

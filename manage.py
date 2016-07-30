@@ -4,8 +4,8 @@ import sys
 from django.conf import settings
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wearhacks_website.settings")
-    # see wearhacks_website/settings/__init__.py
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "smf_website.settings")
+    # see smf_website/settings/__init__.py
     os.environ.setdefault("APP_ENV", "dev")
 
     if settings.DEBUG:

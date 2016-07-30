@@ -6,8 +6,8 @@ It contains deployment-specific settings.
 ########### DEPLOYMENT OPTIONS
 DEFAULT_DEPLOY_TO='default'
 
-# see wearhacks_website/settings/dev.py and 
-# wearhacks_website/settings/prod.py
+# see smf_website/settings/dev.py and 
+# smf_website/settings/prod.py
 
 DEPLOYMENT_MODES = ('dev', 'prod')
 DEFAULT_MODE='prod' 
@@ -19,14 +19,14 @@ DEFAULT_BRANCH='master'
 # show the team and a 'live' server for our official website.
 # For each setting, please specify the corresponding private file which 
 # contains security keys, passwords and other user-specific information.
-# Private files must be located under wearhacks_website/settings/
+# Private files must be located under smf_website/settings/
 #
 # When it's necessary, fab will replace the server's private.py with the private
 # file specified below. 
 # 
 # See:
-#   - wearhacks_website/settings/__init__.py
-#   - wearhacks_website/settings/private_settings_example.py
+#   - smf_website/settings/__init__.py
+#   - smf_website/settings/private_settings_example.py
 
 DEPLOYMENT_PRIVATE_FILES = {
     'default': 'server_private',

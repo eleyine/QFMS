@@ -13,7 +13,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="http://wearhacks.com/">WearHacks</a>
+            <a class="navbar-brand page-scroll" href="{{page.event.url}}">{{page.event.title}}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,60 +22,13 @@
                <!--  <li>
                     <a class="page-scroll" href="#home">{% trans "Home" %}</a>
                 </li> -->
-                <li>
-                    <a class="page-scroll" href="#about">{% trans "About" %}</a>
-                </li>                              
-                <li>
-                    <a class="page-scroll" href="#hardware">{% trans "Hardware" %}</a>
-                </li>               
-                {% if sponsors.global_premium or sponsors.global_standard or sponsors.local_premium or sponsors.local_standard %}
-                <li>
-                    <a class="page-scroll" href="#sponsors">{% trans "Sponsors" %}</a>
-                </li>             
-                {% endif %} 
-<!--                 {% if sponsors.partner %}
-                <li>
-                    <a class="page-scroll" href="#partners">{% trans "Partners" %}</a>
-                </li>             
-                {% endif %} -->  
-                {% if prizes %}
-                <li>
-                    <a class="page-scroll" href="#prizes">{% trans "Prizes" %}</a>
-                </li>             
-                {% endif %}   
-                {% if judges %} 
-                <li>
-                    <a class="page-scroll" href="#judges">{% trans "Judges" %}</a>
-                </li>  
-                {% endif %}  
-                {% if mentors %} 
-                <li>
-                    <a class="page-scroll" href="#mentors">{% trans "Mentors" %}</a>
-                </li> 
-                {% endif %} 
-                <li>
-                    <a class="page-scroll" href="#faq">{% trans "FAQ" %}</a>
-                </li>                
-                <li>
-                    <a class="page-scroll" href="#schedule">{% trans "Schedule" %}</a>
-                </li>   
-                {% if workshops %} 
-                <li>
-                    <a class="page-scroll" href="#workshops">{% trans "Workshops" %}</a>
-                </li> 
-                {% endif %}              
-                <li>
-                    <a class="page-scroll" href="#venue">{% trans "Venue" %}</a>
-                </li>   
-                <!-- <li>
-                    <a class="page-scroll" href="#venue">{% trans "Venue" %}</a>
-                </li>                
-                <li>
-                    <a class="page-scroll" href="#organizers">{% trans "Team" %}</a>
-                </li> -->
-                <li>
-                    <a class="page-scroll" href="#contact">{% trans "Contact" %}</a>
-                </li>
+                {% for section in page.section_set.all %}
+                    {% if section.is_visible and section.show_in_nav}
+                    <li>
+                        <a class="page-scroll" href="#{{ section.nav_title | slugify }}">{{ section.nav_title }}</a>
+                    </li>                              
+                {% endfor %}                  
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
 

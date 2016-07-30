@@ -51,13 +51,13 @@ For a list of commands use: fab -l
     DEFAULT_DEPLOY_TO, 
     DEPLOYMENT_HOSTS[DEFAULT_DEPLOY_TO],
     DEFAULT_MODE,
-    os.path.join(LOCAL_DJANGO_PATH, 'wearhacks_website',
+    os.path.join(LOCAL_DJANGO_PATH, 'smf_website',
             'settings', DEPLOYMENT_PRIVATE_FILES[DEFAULT_DEPLOY_TO] + '.py'),
     DEFAULT_BRANCH,
     DJANGO_PASS)
 
 ########### DJANGO SETTINGS
-DJANGO_SETTINGS_MODULE = 'wearhacks_website.settings'
+DJANGO_SETTINGS_MODULE = 'smf_website.settings'
 ########### END DJANGO SETTINGS
 
 ########### PROMPT SETTINGS
@@ -78,14 +78,14 @@ else:
 GITHUB_PROJECT = 'https://github.com/eleyine/WearHacks-Website.git'
 DJANGO_PROJECT_DIR = '/home/django'
 DJANGO_PROJECT_NAME = 'WearHacks-Website'
-DJANGO_APP_NAME = 'wearhacks_website'
+DJANGO_APP_NAME = 'smf_website'
 DJANGO_PROJECT_PATH = os.path.join(DJANGO_PROJECT_DIR, DJANGO_PROJECT_NAME)
 ########### END PATH AND PROJECT NAME CONFIGURATION
 
 ########### ENV VARIABLES ON REMOTE
 env.hosts = DEPLOYMENT_HOSTS[DEFAULT_DEPLOY_TO]
 ENV_VARIABLES = {
-    'DJANGO_SETTINGS_MODULE': 'wearhacks_website.settings',
+    'DJANGO_SETTINGS_MODULE': 'smf_website.settings',
     'PYTHONPATH': DJANGO_PROJECT_PATH
 }
 ########### END ENV VARIABLES
@@ -141,7 +141,7 @@ def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH)
         Pull changes from master repo
         Migrate database
         Restart nginx and gunicorn
-        Run project using production settings (see wearhacks_website/settings/prod.py)
+        Run project using production settings (see smf_website/settings/prod.py)
 
         
     """
@@ -245,7 +245,7 @@ def _update_permissions(debug=False, setup=False, only_static=False):
                 sudo("chmod -R 200 server_files/logs") # -w- r-- r--
                 blacklist = (
                     'scripts',
-                    # 'wearhacks_website/settings/*_private.py',
+                    # 'smf_website/settings/*_private.py',
                 )
 
                 for f in blacklist:
@@ -381,7 +381,7 @@ def migrate(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, env_variables=None,
                 if reset_db:
                     print '> Deleting database'
                     if mode == 'dev':
-                        run('rm -rf wearhacks_website/db.sqlite3')
+                        run('rm -rf smf_website/db.sqlite3')
                     else:
                         with settings(warn_only=True):
                             run('rm -rf registration/migrations')
@@ -477,11 +477,11 @@ def _get_private_settings_file(deploy_to=DEFAULT_DEPLOY_TO, local=True):
 
     if local:
         django_path = LOCAL_DJANGO_PATH
-        private_file = os.path.join(django_path, 'wearhacks_website',
+        private_file = os.path.join(django_path, 'smf_website',
             'settings', basename + '.py')
     else:
         django_path = DJANGO_PROJECT_PATH
-        private_file = os.path.join(django_path, 'wearhacks_website',
+        private_file = os.path.join(django_path, 'smf_website',
             'settings', 'private.py')
     return private_file
 

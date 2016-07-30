@@ -2,6 +2,7 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
+{% with event=section.page.event %}
 <header id="header">
         <div class="header-content">
             <div class="header-content-inner">
@@ -18,46 +19,20 @@
                                 <li>Montreal</li>
                                 <li>New Res Hall</li>
                                 </ul> -->
-                                <div><p class="small">2-4 Oct 2015</p></div>
-                                <div><p>Montreal</p></div>
-                                <div><p class="small">La Commune</p></div>
+                                <div><p class="small">{{event.start_date.day}}-{{event.end_date.day}}</p></div>
+                                <div><p>{{event.city}}</p></div>
+                                <div><p class="small">{{event.venue.short_display_name}}</p></div>
                             </div>
                         </div>
                         <div class="row">
                         <div class="col-xs-offset-1 col-xs-10">
-                        <h3>{% trans "The Biggest Wearable Hackathon in North-America" %}</h3>
+                        <h3>{{section.subttile}}</h3>
                         </div>
                         </div>
-                        <div class="row what">
-                            <div class="col col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1 text action-label">
-                                <p>{% trans "Innovate with" %}</p>
-                            </div>
-                            <div class="col col-sm-5 col-sm-offset-0 col-xs-8 col-xs-offset-2 hardware  cycle-slideshow" 
-                                data-cycle-fx="flipVert"
-                                data-cycle-pause-on-hover="true"
-                                data-cycle-speed="500"
-                                data-cycle-timeout="1500"
-                                data-cycle-center-vert="true"
-                                data-cycle-center-horz="true"
-                                data-cycle-caption="#alt-caption"
-                                data-cycle-caption-template="{{alt}}"
-                                >
-                                <img src="{% static 'images/carousel/prod/nuance.png' %}" class="nuance">
-                                <img src="{% static 'images/carousel/prod/oculus.png' %}" class="oculus">
-                                <img src="{% static 'images/carousel/prod/kinect.png' %}" class="kinect">
-                                <img src="{% static 'images/carousel/prod/nod.png' %}" class="nod">
-                                <img src="{% static 'images/carousel/prod/myo-white.svg' %}" class="myo">
-                                <div id="alt-caption" class="center"></div>
-                            </div>
-                        </div>
-                        <div class="row how">
-                            <div class="col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
-                                <a href="http://wearhacksmontreal.devpost.com" target="_blank" class="btn btn-primary btn-xl btn-block">{% trans "Sign up on Devpost" %}</a>
-                            </div>
-                         </div>
                     </div>
                 </div>                
             </div>
         </div>
         <div class="background"></div>
     </header>
+{% endwith %}

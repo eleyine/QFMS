@@ -1,5 +1,5 @@
 """
-Django settings for wearhacks_website project.
+Django settings for smf_website project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/

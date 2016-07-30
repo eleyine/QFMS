@@ -19,11 +19,11 @@ hr.bg-white {
 }
 header {
   background-color: #2a223e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2a223e), to(#000000));
-  background: -webkit-linear-gradient(top, #2a223e, #000000);
-  background: -moz-linear-gradient(top, #2a223e, #000000);
-  background: -ms-linear-gradient(top, #2a223e, #000000);
-  background: -o-linear-gradient(top, #2a223e, #000000);
+  background: -webkit-gradient(linear, left top, left bottom, from(#2a223e), to(#000));
+  background: -webkit-linear-gradient(top, #2a223e, #000);
+  background: -moz-linear-gradient(top, #2a223e, #000);
+  background: -ms-linear-gradient(top, #2a223e, #000);
+  background: -o-linear-gradient(top, #2a223e, #000);
 }
 header .background {
   display: block;

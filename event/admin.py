@@ -1,5 +1,22 @@
 from django.contrib import admin
-from event.models import Person, Sponsor, Workshop, Prize, PrizePerk
+from event.models.main import Event
+import event
+from event.models.page import Page, Section, SECTION_CLASSES
+from event.models.assets import Person, Company, Prize, PrizePerk
+
+
+class CustomStackedInline(admin.StackedInline):
+    extra = 0
+
+section_class_inlines = []
+for section_class in SECTION_CLASSES:
+    section_class_inline = type(str(section_class), (CustomStackedInline,), {
+        'extra': 0,
+        'model': section_class})
+    section_class_inlines.append(section_class_inline)
+
+class PageAdmin(admin.ModelAdmin):
+    inlines = section_class_inlines
 
 class PersonAdmin(admin.ModelAdmin):
     date_hierarchy = 'updated_at'
@@ -57,9 +74,11 @@ class PersonAdmin(admin.ModelAdmin):
     list_filter = ('category', 'company', 'gender')
     list_display_links = ('full_name',)
 
+admin.site.register(Event)
+admin.site.register(Page, PageAdmin)
+
 admin.site.register(Person, PersonAdmin)
-admin.site.register(Sponsor)
-admin.site.register(Workshop)
+admin.site.register(Company)
 admin.site.register(Prize)
 admin.site.register(PrizePerk)
 

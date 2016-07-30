@@ -4,8 +4,8 @@ pip install -r requirements.txt
 echo 'Installing bower requirements'
 bower install
 
-echo 'Creating private settings to wearhacks_website/settings/private.py'
-cp wearhacks_website/settings/example_private_settings.py wearhacks_website/settings/private.py
+echo 'Creating private settings to smf_website/settings/private.py'
+cp smf_website/settings/example_private_settings.py smf_website/settings/private.py
 
 echo 'Setting up database'
 
