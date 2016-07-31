@@ -15,15 +15,15 @@ class Event(models.Model):
 
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    venue = models.ForeignKey('Place')
+    venue = models.ForeignKey('Place', blank=True)
 
     small_text_logo = models.ImageField(blank=True, 
         upload_to='event_text_logo',
         help_text="The logo appearing in the navbar")
 
 
-    country = models.CharField(max_length=20)
-    city = models.CharField(max_length=20)
+    country = models.CharField(max_length=20, blank=True)
+    city = models.CharField(max_length=20, blank=True)
 
     social_media = models.ManyToManyField('SocialMediaAccount', blank=True)
 
