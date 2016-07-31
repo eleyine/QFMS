@@ -1,8 +1,8 @@
 from django.contrib import admin
 from event.models.main import Event
 import event
-from event.models.page import Page, Section, SECTION_CLASSES
-from event.models.assets import Person, Company, Prize, PrizePerk
+from event.models.page import Page, Section, SECTION_CLASSES, PerkItem, WorkshopItem
+from event.models.assets import Person, Company, Prize, PrizePerk, Place
 
 
 class CustomStackedInline(admin.StackedInline):
@@ -76,7 +76,10 @@ class PersonAdmin(admin.ModelAdmin):
 
 admin.site.register(Event)
 admin.site.register(Page, PageAdmin)
+admin.site.register(PerkItem)
+admin.site.register(WorkshopItem)
 
+admin.site.register(Place)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Company)
 admin.site.register(Prize)
