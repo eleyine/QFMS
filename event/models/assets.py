@@ -186,7 +186,7 @@ class Address(models.Model):
     street = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     province = models.CharField(max_length=2)
-    zipcode = models.CharField(max_length=6)
+    postal_code = models.CharField(max_length=6)
 
     def __unicode__(self):
         return '%i %s, %s, %s' % (self.num, self.street, self.city, self.province) 
