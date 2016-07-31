@@ -1,4 +1,4 @@
- (function() {
+ (function(window) {
     "use strict"; // Start of use strict
 
     $( document ).ready(function() {
@@ -15,7 +15,7 @@
                     zoom: 14,
 
                     // The latitude and longitude to center the map (always required)
-                    center: new google.maps.LatLng(45.5077, -73.5534), // La Commune
+                    center: new google.maps.LatLng(window.venue_lat, window.venue_long), // La Commune
 
                     // How you would like to style the map. 
                     // This is where you would paste any style found on Snazzy Maps.
@@ -31,10 +31,10 @@
 
                 // Let's also add a marker while we're at it
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(45.5077, -73.5534),
+                    position: new google.maps.LatLng(window.venue_lat, window.venue_long),
                     map: map,
                     title: 'La Commune'
                 });
             }
     });
-})(); 
+})(window); 

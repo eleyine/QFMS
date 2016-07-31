@@ -1,7 +1,7 @@
 from django.views import generic
 # from event.assets import Person, Sponsor, Workshop, Prize
 from event.models.main import Event
-from event.models.page import Section, SECTION_CLASSES
+from event.models.page import Section, VenueSection, SECTION_CLASSES
 from collections import defaultdict
 
 class IndexView(generic.TemplateView):
@@ -16,6 +16,12 @@ class IndexView(generic.TemplateView):
         context['page'] = page
         context['sections'] = page.get_sections()
         
+        if VenueSection.objects.filter(page=page).count():
+            venue_section = VenueSection.objects.filter(page=page).first()
+            context['venue_section'] = {
+                'long': venue_section.venue.longitude,
+                'lat': venue_section.venue.latitude
+            }
         # Add in a QuerySet of all persons
         # context['judges'] = Person.objects.filter(category='J').all()
         # context['mentors'] = Person.objects.filter(category='M').all()
