@@ -49,34 +49,38 @@ header .background {
 header a.btn {
   margin: 10px 0;
 }
-header .volunteer-for-us {
+header .how {
+  margin-top: 150px;
   padding-bottom: 10px;
 }
-header .volunteer-for-us a.btn {
+header .how a.btn {
   opacity: 0.8;
   border: 2px solid #fff;
   color: #fff;
   background: none;
 }
-header .volunteer-for-us a.btn:hover {
+header .how a.btn:hover {
   opacity: 1;
   background: #eee;
   color: #333;
 }
-header .volunteer-for-us a.btn {
+header .how a.btn {
   height: 50px;
   min-height: 50px;
 }
-header .volunteer-for-us a.btn:hover {
+header .how a.btn:hover {
   font-size: 0px;
   height: 50px;
   min-height: 50px;
 }
-header .volunteer-for-us a.btn:hover:after {
+header .how a.btn:hover:after {
   font-size: 15px;
-  content: "Awesome!";
+  content: "Super!";
   min-height: 50px;
   height: 50px;
+}
+header .how a.btn-primary {
+  background-color: #3e81fd;
 }
 header .header-content {
   margin-top: 0;
@@ -352,235 +356,235 @@ header .header-content-inner .how button {
 .navbar .social-btns > *:hover > * {
   top: -100%;
 }
-#about img {
+section.about img {
   margin-bottom: 20px;
 }
-#perks .fa {
+section.perks .fa {
   color: #3e81fd;
 }
-#hardware .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .small {
+section.hardware .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .small {
   font-size: 11px;
 }
-#hardware li {
+section.hardware li {
   list-style: none;
   margin-bottom: 0;
 }
-#hardware li p {
+section.hardware li p {
   margin-bottom: 0;
 }
-#sponsors .col-centered,
-#partners .col-centered {
+section.sponsors .col-centered,
+section.partners .col-centered {
   float: none;
   margin: 0 auto;
   display: inline-block;
 }
-#sponsors .sponsor-logos-container,
-#partners .sponsor-logos-container {
+section.sponsors .sponsor-logos-container,
+section.partners .sponsor-logos-container {
   text-align: center;
   margin: 10px 15px;
   display: inline-block;
   vertical-align: middle;
   /* Special cases */
 }
-#sponsors .sponsor-logos-container img,
-#partners .sponsor-logos-container img {
+section.sponsors .sponsor-logos-container img,
+section.partners .sponsor-logos-container img {
   display: inline-block;
   vertical-align: middle;
 }
-#sponsors .sponsor-logos-container.logos-premium,
-#partners .sponsor-logos-container.logos-premium,
-#sponsors .sponsor-logos-container.logos-partner,
-#partners .sponsor-logos-container.logos-partner {
+section.sponsors .sponsor-logos-container.logos-premium,
+section.partners .sponsor-logos-container.logos-premium,
+section.sponsors .sponsor-logos-container.logos-partner,
+section.partners .sponsor-logos-container.logos-partner {
   height: 140px;
 }
-#sponsors .sponsor-logos-container.logos-premium a,
-#partners .sponsor-logos-container.logos-premium a,
-#sponsors .sponsor-logos-container.logos-partner a,
-#partners .sponsor-logos-container.logos-partner a {
+section.sponsors .sponsor-logos-container.logos-premium a,
+section.partners .sponsor-logos-container.logos-premium a,
+section.sponsors .sponsor-logos-container.logos-partner a,
+section.partners .sponsor-logos-container.logos-partner a {
   white-space: nowrap;
   height: 120px;
   margin: 0;
   padding: 0;
 }
-#sponsors .sponsor-logos-container.logos-premium a .helper,
-#partners .sponsor-logos-container.logos-premium a .helper,
-#sponsors .sponsor-logos-container.logos-partner a .helper,
-#partners .sponsor-logos-container.logos-partner a .helper {
+section.sponsors .sponsor-logos-container.logos-premium a .helper,
+section.partners .sponsor-logos-container.logos-premium a .helper,
+section.sponsors .sponsor-logos-container.logos-partner a .helper,
+section.partners .sponsor-logos-container.logos-partner a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-#sponsors .sponsor-logos-container.logos-premium a img,
-#partners .sponsor-logos-container.logos-premium a img,
-#sponsors .sponsor-logos-container.logos-partner a img,
-#partners .sponsor-logos-container.logos-partner a img {
+section.sponsors .sponsor-logos-container.logos-premium a img,
+section.partners .sponsor-logos-container.logos-premium a img,
+section.sponsors .sponsor-logos-container.logos-partner a img,
+section.partners .sponsor-logos-container.logos-partner a img {
   max-height: 120px;
   vertical-align: middle;
 }
-#sponsors .sponsor-logos-container.logos-standard,
-#partners .sponsor-logos-container.logos-standard {
+section.sponsors .sponsor-logos-container.logos-standard,
+section.partners .sponsor-logos-container.logos-standard {
   height: 90px;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-standard,
-  #partners .sponsor-logos-container.logos-standard {
+  section.sponsors .sponsor-logos-container.logos-standard,
+  section.partners .sponsor-logos-container.logos-standard {
     margin: 5px 10px;
     height: 50px;
   }
 }
-#sponsors .sponsor-logos-container.logos-standard a,
-#partners .sponsor-logos-container.logos-standard a {
+section.sponsors .sponsor-logos-container.logos-standard a,
+section.partners .sponsor-logos-container.logos-standard a {
   white-space: nowrap;
   height: 70px;
   margin: 0;
   padding: 0;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-standard a,
-  #partners .sponsor-logos-container.logos-standard a {
+  section.sponsors .sponsor-logos-container.logos-standard a,
+  section.partners .sponsor-logos-container.logos-standard a {
     height: 40px;
   }
 }
-#sponsors .sponsor-logos-container.logos-standard a .helper,
-#partners .sponsor-logos-container.logos-standard a .helper {
+section.sponsors .sponsor-logos-container.logos-standard a .helper,
+section.partners .sponsor-logos-container.logos-standard a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-#sponsors .sponsor-logos-container.logos-standard a img,
-#partners .sponsor-logos-container.logos-standard a img {
+section.sponsors .sponsor-logos-container.logos-standard a img,
+section.partners .sponsor-logos-container.logos-standard a img {
   max-height: 70px;
   vertical-align: middle;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-standard a img,
-  #partners .sponsor-logos-container.logos-standard a img {
+  section.sponsors .sponsor-logos-container.logos-standard a img,
+  section.partners .sponsor-logos-container.logos-standard a img {
     max-height: 40px;
   }
 }
-#sponsors .sponsor-logos-container.logos-partner,
-#partners .sponsor-logos-container.logos-partner {
+section.sponsors .sponsor-logos-container.logos-partner,
+section.partners .sponsor-logos-container.logos-partner {
   height: 110px;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-partner,
-  #partners .sponsor-logos-container.logos-partner {
+  section.sponsors .sponsor-logos-container.logos-partner,
+  section.partners .sponsor-logos-container.logos-partner {
     margin: 5px 10px;
     height: 70px;
   }
 }
-#sponsors .sponsor-logos-container.logos-partner a,
-#partners .sponsor-logos-container.logos-partner a {
+section.sponsors .sponsor-logos-container.logos-partner a,
+section.partners .sponsor-logos-container.logos-partner a {
   white-space: nowrap;
   height: 110px;
   margin: 0;
   padding: 0;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-partner a,
-  #partners .sponsor-logos-container.logos-partner a {
+  section.sponsors .sponsor-logos-container.logos-partner a,
+  section.partners .sponsor-logos-container.logos-partner a {
     height: 70px;
   }
 }
-#sponsors .sponsor-logos-container.logos-partner a .helper,
-#partners .sponsor-logos-container.logos-partner a .helper {
+section.sponsors .sponsor-logos-container.logos-partner a .helper,
+section.partners .sponsor-logos-container.logos-partner a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-#sponsors .sponsor-logos-container.logos-partner a img,
-#partners .sponsor-logos-container.logos-partner a img {
+section.sponsors .sponsor-logos-container.logos-partner a img,
+section.partners .sponsor-logos-container.logos-partner a img {
   max-height: 110px;
   vertical-align: middle;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.logos-partner a img,
-  #partners .sponsor-logos-container.logos-partner a img {
+  section.sponsors .sponsor-logos-container.logos-partner a img,
+  section.partners .sponsor-logos-container.logos-partner a img {
     max-height: 70px;
   }
 }
-#sponsors .sponsor-logos-container.softlayer a img,
-#partners .sponsor-logos-container.softlayer a img {
+section.sponsors .sponsor-logos-container.softlayer a img,
+section.partners .sponsor-logos-container.softlayer a img {
   max-width: 500px;
 }
 @media (max-width: 600px) {
-  #sponsors .sponsor-logos-container.softlayer a img,
-  #partners .sponsor-logos-container.softlayer a img {
+  section.sponsors .sponsor-logos-container.softlayer a img,
+  section.partners .sponsor-logos-container.softlayer a img {
     max-width: 90%;
   }
 }
-#sponsors .sponsor-item,
-#partners .sponsor-item {
+section.sponsors .sponsor-item,
+section.partners .sponsor-item {
   text-align: center;
   font-size: 17px;
   line-height: 25px;
   color: #999999;
 }
-#prizes .image .fa {
+section.prizes .image .fa {
   width: 150px;
   height: 100px;
   background: url("../../images/prizes/cup.png") no-repeat center center;
   background-size: 150px;
 }
-#prizes .image .fa:before {
+section.prizes .image .fa:before {
   position: relative;
   top: 15%;
   font-size: 40px;
   color: #3e81fd;
   text-shadow: 2px 2px #c5a016;
 }
-#prizes p {
+section.prizes p {
   font-size: 13px;
 }
-#prizes .perks {
+section.prizes .perks {
   list-style: none;
   padding: 0 10px;
   margin: 0;
 }
-#prizes .perk-item .fa {
+section.prizes .perk-item .fa {
   margin-right: 10px;
   color: green;
 }
-#prizes .prize-container {
+section.prizes .prize-container {
   height: 300px;
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  #judges .name {
+  section.judges .name {
     text-align: center;
   }
 }
-#mentors .biography {
+section.mentors .biography {
   font-size: 14px;
 }
-#mentors .social-buttons-container {
+section.mentors .social-buttons-container {
   text-align: center;
   width: 100%;
 }
-#mentors .social-buttons-container .social-buttons {
+section.mentors .social-buttons-container .social-buttons {
   display: inline-block;
 }
-#mentors .name p {
+section.mentors .name p {
   margin-bottom: 5px;
 }
 @media (min-width: 768px) {
-  #mentors .mentor {
+  section.mentors .mentor {
     max-height: 650px;
     height: 650px;
     overflow: hidden;
   }
-  #mentors .mentor .name {
+  section.mentors .mentor .name {
     height: 100px;
     max-height: 100px;
   }
-  #mentors .mentor .biography {
+  section.mentors .mentor .biography {
     max-height: 350px;
     overflow: hidden;
   }
 }
 .portrait.img-circle {
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   overflow: hidden;
   border-radius: 50%;
   margin: auto;
@@ -588,7 +592,7 @@ header .header-content-inner .how button {
 }
 .portrait.img-circle img {
   -webkit-transform: translate(-50%);
-  margin-left: 100px;
+  margin-left: 90px;
 }
 .small-portrait.img-circle {
   height: 150px;
@@ -602,63 +606,64 @@ header .header-content-inner .how button {
   -webkit-transform: translate(-50%);
   margin-left: 75px;
 }
-#social {
+section.social {
   padding: 40px 0;
 }
-#social .section-heading {
+section.social .section-heading {
   margin-bottom: 30px;
   margin-top: 10px;
+  color: #fff;
 }
-#social a.fa {
+section.social a.fa {
   color: #666;
 }
-#social a.fa:hover {
+section.social a.fa:hover {
   color: #ddd;
   text-decoration: none;
 }
-#faq .panel {
+section.faq .panel {
   margin-bottom: 0;
 }
-#faq .panel h3 {
+section.faq .panel h3 {
   margin-top: 10px;
 }
-#faq .panel p {
+section.faq .panel p {
   margin-bottom: 0;
 }
-#schedule hr {
+section.schedule hr {
   opacity: 0.6;
 }
-#schedule p.time,
-#schedule p.activity {
+section.schedule p.time,
+section.schedule p.activity {
   display: block;
   float: left;
 }
-#schedule p.time {
+section.schedule p.time {
   opacity: 0.6;
   width: 30%;
   text-align: left;
 }
 @media (max-width: 768px) {
-  #schedule p.time {
+  section.schedule p.time {
     width: 40%;
   }
 }
-#schedule p.activity {
+section.schedule p.activity {
   width: 70%;
 }
-#schedule p.activity strong {
+section.schedule p.activity strong {
   border-bottom: 2px solid white;
 }
 @media (max-width: 768px) {
-  #schedule p.activity {
+  section.schedule p.activity {
     width: 60%;
   }
 }
-#schedule p.activity.workshop {
+section.schedule p.activity.workshop {
   line-height: 25px;
   font-size: 14px;
 }
-#schedule p.activity.workshop:before {
+section.schedule p.activity.workshop:before {
   content: "Workshop";
   display: inline-block;
   font-size: 8px;
@@ -673,87 +678,98 @@ header .header-content-inner .how button {
   line-height: 14px;
   padding: 2px 5px;
 }
-#schedule p emph {
+section.schedule p emph {
   font-style: italic;
   font-weight: 100;
   letter-spacing: 1px;
 }
-#schedule a.annotated {
+section.schedule a.annotated {
   font-weight: normal;
 }
-#schedule h4 {
+section.schedule h4 {
   padding: 10px 0;
   font-weight: 400;
   margin: 20px 0 40px 0;
   font-size: 23px;
   font-family: "Raleway", 'Helvetica Neue', Arial, sans-serif;
 }
-#schedule h4 span {
+section.schedule h4 span {
   border: 3px solid white;
   padding: 10px 20px;
 }
-#schedule a {
+section.schedule a {
   color: white;
   font-weight: bold;
   border-bottom: 1px dotted white;
 }
-#schedule a:hover {
+section.schedule a:hover {
   color: white;
   text-decoration: none;
   border-bottom: 1px solid white;
 }
-#venue {
+section.venue {
   margin: 0;
   padding: 0;
 }
-#venue #map {
+section.venue #map {
   width: 100%;
   height: 500px;
 }
-#venue h3.subtitle {
+section.venue h3.subtitle {
   margin-top: 0;
 }
-#venue .website {
+section.venue .website {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-#venue .container {
+section.venue .container {
   margin: 0;
   padding: 0;
   padding-top: 30px;
   width: 100%;
 }
-#venue .row {
+section.venue .row {
   margin: 0;
   padding: 0;
   width: 100%;
 }
-#venue .row .col-xs-12 {
+section.venue .row .col-xs-12 {
   width: 100%;
   padding: 0;
 }
-#workshops .showcase {
+section.workshops .showcase,
+section.talks .showcase {
   padding: 0;
   margin-bottom: 20px;
 }
-#workshops .title {
+section.workshops .title,
+section.talks .title {
   margin-top: 10px;
 }
-#workshops .moderated-by,
-#workshops .info p {
+section.workshops .moderated-by,
+section.talks .moderated-by,
+section.workshops .info p,
+section.talks .info p {
   font-size: 11px;
   text-transform: uppercase;
   color: #999;
   font-weight: bold;
   letter-spacing: 1px;
 }
-#workshops .info p {
+section.workshops .info p,
+section.talks .info p {
   margin-bottom: 0px;
 }
-#workshops .moderators .name {
+section.workshops .speaker.name,
+section.talks .speaker.name {
+  margin-bottom: 15px;
+}
+section.workshops .moderators .name,
+section.talks .moderators .name {
   margin-bottom: 2px;
 }
-#workshops .divider {
+section.workshops .divider,
+section.talks .divider {
   background-color: #ddd;
   width: 90%;
   height: 1px;
@@ -774,4 +790,19 @@ header .header-content-inner .how button {
 }
 a[data-toggle="tooltip"]:after {
   content: "*";
+}
+footer {
+  padding: 15px 0;
+}
+footer p {
+  color: #eee;
+  margin-bottom: 0;
+}
+footer a {
+  font-weight: bold;
+  color: #fff;
+}
+footer a:hover {
+  color: #3e81fd;
+  text-decoration: none;
 }

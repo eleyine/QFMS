@@ -62,11 +62,12 @@ header {
     a.btn {
         margin: 10px 0;
     }
-    .volunteer-for-us {
+    .how {
+        margin-top: 150px;
         padding-bottom:10px;
     }
 
-    .volunteer-for-us a.btn {
+    .how a.btn {
         opacity: 0.8;
         border: 2px solid #fff;
         color: #fff;
@@ -78,7 +79,7 @@ header {
         }
     }
 
-    .volunteer-for-us a.btn {
+    .how a.btn {
         height: 50px;
         min-height: 50px;
         &:hover {
@@ -87,11 +88,15 @@ header {
             min-height: 50px;
             &:after {
                 font-size: 15px;
-                content: "Awesome!";
+                content: "Super!";
                 min-height: 50px;
                 height: 50px;
             }
         }
+    }
+
+    .how a.btn-primary {
+        background-color: @theme-primary;
     }
 
     .header-content {
@@ -431,19 +436,19 @@ header {
     }
 }
 
-#about {
+section.about {
     img {
         margin-bottom: 20px;
     }
 }
 
-#perks {
+section.perks {
     .fa {
         color: @theme-primary;
     }
 }
 
-#hardware {
+section.hardware {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
         .small {
             font-size: 11px;
@@ -458,8 +463,8 @@ header {
     }
 }
 
-#sponsors,
-#partners {
+section.sponsors,
+section.partners {
     .col-centered {
         float: none;
         margin: 0 auto;
@@ -567,7 +572,7 @@ header {
     }
 }
 
-#prizes {
+section.prizes {
     .image .fa {
     width: 150px;
     height: 100px;
@@ -602,7 +607,7 @@ header {
 
 }
 
-#judges {
+section.judges {
    .name {
         @media (max-width: 768px) {
             text-align: center;
@@ -610,7 +615,7 @@ header {
    }
 }
 
-#mentors {
+section.mentors {
     .biography {
         font-size: 14px;
     }
@@ -648,7 +653,7 @@ header {
     }
 }
 
-@portrait-dim: 200px;
+@portrait-dim: 180px;
 .portrait {
     &.img-circle{
         height:@portrait-dim;
@@ -682,11 +687,12 @@ header {
     }
 }
 
-#social {
+section.social {
     padding: 40px 0;
     .section-heading {
         margin-bottom: 30px;
         margin-top: 10px;
+        color: #fff;
     }
     a.fa {
         color: #666;
@@ -697,7 +703,7 @@ header {
     }
 }
 
-#faq {
+section.faq {
     .panel {
         margin-bottom: 0;
 
@@ -711,7 +717,7 @@ header {
     }
 }
 
-#schedule {
+section.schedule {
 
     hr {
         opacity: 0.6;
@@ -802,7 +808,7 @@ header {
     }
 }
 
-#venue {
+section.venue {
     margin:0;
     padding:0;
 
@@ -839,7 +845,8 @@ header {
     }
 }
 
-#workshops {
+section.workshops,
+section.talks {
     .showcase {
         padding: 0;
         margin-bottom: 20px;
@@ -858,6 +865,10 @@ header {
 
     .info p {
         margin-bottom: 0px;
+    }
+
+    .speaker.name {
+      margin-bottom: 15px;
     }
 
     .moderators .name {
@@ -894,5 +905,23 @@ header {
 a[data-toggle="tooltip"] {
     &:after {
         content: "*";
+    }
+}
+
+footer {
+    padding: 15px 0;
+
+    p {
+        color: #eee;
+        margin-bottom: 0;
+    }
+
+    a {
+        font-weight: bold;
+        color: #fff;
+        &:hover {
+            color: @theme-primary;
+            text-decoration: none;
+        }
     }
 }
