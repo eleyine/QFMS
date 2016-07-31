@@ -11,6 +11,7 @@ class Event(models.Model):
 
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=200, blank=True)
+    description = models.CharField(max_length=1000, blank=True)
     url = models.URLField(max_length=100, blank=True)
 
     start_date = models.DateTimeField()
