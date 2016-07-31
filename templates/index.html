@@ -15,7 +15,9 @@
     {% empty %}
     <p> No sections yet ! </p>
     {% endfor %}
-        {% comment %}
+    {% include "footer.html" %}
+
+    {% comment %}
 
     {% include "header.html" %}
     {% include "about.html" %}
@@ -30,7 +32,6 @@
     {% include "venue.html" %}
     {% include "organizers.html" %}
     {% include "contact.html" %}
-    {% include "footer.html" %}
     {% endcomment %}
 
 {% endblock %}
@@ -38,6 +39,14 @@
 {% block scripts %}
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlpfrm5k0wf4qTlKaIKQF4DFxAgecKdnw&sensor=false"></script>
+
+
+{% if venue_section %}
+<script type="text/javascript">
+window.venue_long = {{venue_section.long}};
+window.venue_lat = {{venue_section.lat}};
+</script>
+{% endif %}
 
 {% compress js %}
 <script type="text/javascript" src="{% static 'javascripts/snazzy-map.js' %}{% if debug %}?v=00001{% endif %}"></script>

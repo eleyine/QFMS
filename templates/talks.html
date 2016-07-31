@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+<section id="{{ section.nav_title | slugify }}" class="bg-light-gray talks judges">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{section.title}}</h2>
+                <hr class="primary">
+            </div>
+        </div>
+        {% for talk in section.talks.all %}
+        <div class="row">
+            <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
+                <div class="portrait img-circle hor">
+                    {% if talk.speaker.profile_pic %}
+                    <img src="{{ talk.speaker.profile_pic.url }}" alt="{{talk.speaker.first_name}} {{talk.speaker.last_name}}" height="180px">
+                    {% else %}
+                    <img src="{% static 'images/default/default_profile.png' %}" alt="{{talk.speaker.first_name}} {{talk.speaker.last_name}}" height="180px">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
+                <div class="speaker name">
+                <h3 class="title">{{talk.title}}</h3>
+                <h4 class="muted"> Par 
+                <strong>{% if talk.speaker.website %}
+                    <a href="{{talk.speaker.website}}" target="_blank">{{talk.speaker.first_name}} {{talk.speaker.last_name}}</a>
+                {% else %}
+                    {{talk.speaker.first_name}} {{talk.speaker.last_name}}{% endif %}</strong>{% if talk.speaker.role %}, <span class="text-muted">{{ talk.speaker.role }}</span>
+                </h4>
+                {% endif %}
+                </div>
+                <div>
+                    <p>{{talk.description}}</p>
+                </div>
+                {% if talk.speaker.biography %}
+                <p class="moderated-by muted">À propos du Conférencier</p>
+                <p class="biography">{{ talk.speaker.biography | safe }}</p>
+                {% endif %}
+                <ul class="list-inline social-buttons">
+                    {% if talk.speaker.twitter %}<li><a href="{{talk.speaker.twitter}}"><i class="fa fa-twitter"></i></a></li>{% endif %}
+                    {% if talk.speaker.website %}<li><a href="{{talk.speaker.website}}"><i class="fa fa-globe"></i></a></li>{% endif %}
+                    {% if talk.speaker.linkedin %}<li><a href="{{talk.speaker.linkedin}}"><i class="fa fa-linkedin"></i></a></li>{% endif %}
+                    {% if talk.speaker.facebook %}<li><a href="{{talk.speaker.facebook}}"><i class="fa fa-facebook"></i></a></li>{% endif %}
+                    {% if talk.speaker.github %}<li><a href="{{talk.speaker.github}}"><i class="fa fa-github"></i></a></li>{% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

@@ -62,28 +62,38 @@
                 {% endcomment %}
                 <li class="pull-right">
                     <div class="social-btns">
-                       <a class="social-holder" href="http://facebook.com/wearhacks">
-                       <div class="fui-facebook fa fa-facebook">
-                       </div>
-                       <div class="fui-facebook fa fa-facebook">
-                       </div>
-                        </a> <a class="social-holder" href="http://twitter.com/wearhacks">
+                      {% for account in event.social_media.all %}
+                      {% if account.account_type == 'tw' %}
+                      <a class="social-holder" href="{{account.url}}">
                        <div class="fui-twitter fa fa-twitter">
                        </div>
                        <div class="fui-twitter fa fa-twitter">
                        </div>
-                     </a> <a class="social-holder" href="https://www.linkedin.com/company/wearhacks">
+                      </a>
+                      {% elif account.account_type == 'fb' %}
+                      <a class="social-holder" href="{{account.url}}">
+                       <div class="fui-facebook fa fa-facebook">
+                       </div>
+                       <div class="fui-facebook fa fa-facebook">
+                       </div>
+                      </a> 
+                      {% elif account.account_type == 'ln' %}
+                      <a class="social-holder" href="{{account.url}}">
                        <div class="fui-linkedin fa fa-linkedin">
                        </div>
                        <div class="fui-linkedin fa fa-linkedin">
                        </div>
-                        </a> <a class="social-holder" href="https://www.youtube.com/channel/UC2ptEc6sOrLmmivfPjWoIyA">
+                      </a> 
+                      {% elif account.account_type == 'yt' %}                       
+                      <a class="social-holder" href="{{account.url}}">
                        <div class="fui-youtube fa fa-youtube">
                        </div>
                        <div class="fui-youtube fa fa-youtube">
                        </div>
-                        </a>
-                     </div>
+                      </a>
+                      {% endif %}
+                      {% endfor %}
+                    </div>
                 </li>
             </ul>
         </div>

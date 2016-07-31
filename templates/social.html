@@ -1,10 +1,10 @@
     {% load i18n %}
 
-    <section class="bg-dark" id ="social">
+    <section class="bg-dark social" id ="{{ section.nav_title | slugify }}">
         <div class="container text-center">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <h2 class="section-heading">#{{section.hashtag}}</h2>
+                    <h2 class="section-heading hashtag">#{{section.hashtag}}</h2>
                 </div>
                 <div class="col-xs-6 col-sm-offset-4 col-sm-2 col-md-offset-5 col-md-1 text-center">
                     <a target="_blank" class="fa fa-twitter fa-3x wow bounceIn" data-wow-delay=".1s"

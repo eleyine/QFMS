@@ -2,7 +2,7 @@
     {% load i18n %}
     {% load event_extras %}
 
-    <section id="perks">
+    <section id="{{ section.nav_title | slugify }}" class="perks">
         {% if section.show_title %}
         <div class="container">
             <div class="row">
