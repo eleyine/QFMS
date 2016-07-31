@@ -25,6 +25,7 @@ static/images/carousel/src/
 migrate.sh
 
 # Fixtures
+*/fixtures
 
 # Deployment settings
 smf_website/settings/*_private.py
