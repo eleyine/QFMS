@@ -179,7 +179,7 @@ class Place(models.Model):
         help_text="For Google Maps")
 
     def __unicode__(self):
-        return short_display_name
+        return self.short_display_name
 
 class Address(models.Model):
     num = models.IntegerField()
