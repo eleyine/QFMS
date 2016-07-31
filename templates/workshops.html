@@ -8,14 +8,20 @@
                 <hr class="primary">
             </div>
         </div>
-        {% for workshop in section.workshops.all %}
-        <div class="row workshop">
+
 <!--             <div class="showcase col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
                 {% if workshop.showcase_image %}
                     <img class="img-responsive" src="{% static workshop.showcase_image.url %}" alt="{{workshop.title}}" height="200px">
                 {% endif %}
             </div> -->
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+
+        {% for workshop in section.workshops.all %}
+            {% if not forloop.counter|divisibleby:"2" %}
+            <!-- START ROW -->
+            <div class="row">
+            {% endif %}
+
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 {% if not forloop.counter|divisibleby:"2" %} col-md-offset-1 {% endif %}  col-md-5 ">
                 <div class="info">
                     <p> {{workshop.human_readable_time_slot}} {% if workshop.location %}@ {{workshop.location}}{% endif %}</p>
                 </div>
@@ -74,13 +80,15 @@
                     {% if judge.github %}<li><a href="{{judge.github}}"><i class="fa fa-github"></i></a></li>{% endif %}
                 </ul>
             </div>
-            {% if not forloop.last %}
-            <div class="col-sm-12">
-                <div class="divider"></div>
-            </div>
-            {% endif %}
+        {% if forloop.counter|divisibleby:"2" %}
         </div>
+        <!-- END ROW -->
+
+        {% endif %}
+
         {% endfor %}
+        </div>
+
     </div>
 </section>
 
