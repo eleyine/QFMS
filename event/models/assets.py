@@ -183,10 +183,10 @@ class Place(models.Model):
 
     website = models.URLField(max_length=200, blank=True)
     
-    latitude = models.IntegerField(default=0,
-        help_text="For Google Maps")
-    longitude = models.IntegerField(default=0,
-        help_text="For Google Maps")
+    latitude = models.DecimalField(default=0,
+        help_text="For Google Maps", max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(default=0,
+        help_text="For Google Maps", max_digits=9, decimal_places=6)
 
     def __unicode__(self):
         return self.short_display_name
