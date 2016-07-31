@@ -4,13 +4,19 @@
 
 {% block content %}
     {% include "navigation.html" with page=page %}
+
     {% for section in sections %}
-        {% include section.template with section=section %}
+    {% with ""|add:section.template as template %}
+        {% include template with section=section %}
+
+    {% endwith %}
+
     <!-- <p> {{section.title}}</p> -->
     {% empty %}
     <p> No sections yet ! </p>
     {% endfor %}
-    {% comment %}
+        {% comment %}
+
     {% include "header.html" %}
     {% include "about.html" %}
     {% include "perks.html" %}

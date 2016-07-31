@@ -5,14 +5,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-1">
-                    <img src="{% static 'images/logo-white.png' %}" width="100%"/>
+                    <img src="{% static 'images/logo.png' %}" width="100%"/>
                     <!-- <img src="{% static 'images/logo-text-white.png' %}" width="100%"/> -->
                 </div>
                 <div class="col-xs-10 col-xs-offset-1 col-sm-7 col-sm-offset-0 text-left">
                     <h2 class="section-heading">{{section.title}}</h2>
                     <!-- <hr class="light"> -->
                     <p class="text-faded">
-                    {{section.description}}
+                    {{section.description|safe}}
                     </p>
                     {% if section.show_button %}
 

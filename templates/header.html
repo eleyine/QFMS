@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load event_extras %}
 
 {% with event=section.page.event %}
 <header id="header">
@@ -19,7 +20,7 @@
                                 <li>Montreal</li>
                                 <li>New Res Hall</li>
                                 </ul> -->
-                                <div><p class="small">{{event.start_date.day}}-{{event.end_date.day}}</p></div>
+                                <div><p class="small">{{event.start_date.day}}-{{event.end_date.day}} {{event.start_date.month|month_name}}</p></div>
                                 <div><p>{{event.city}}</p></div>
                                 <div><p class="small">{{event.venue.short_display_name}}</p></div>
                             </div>

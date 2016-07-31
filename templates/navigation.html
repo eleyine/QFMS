@@ -22,11 +22,12 @@
                <!--  <li>
                     <a class="page-scroll" href="#home">{% trans "Home" %}</a>
                 </li> -->
-                {% for section in page.section_set.all %}
-                    {% if section.is_visible and section.show_in_nav}
+                {% for section in sections %}
+                    {% if section.is_visible and section.show_in_nav %}
                     <li>
                         <a class="page-scroll" href="#{{ section.nav_title | slugify }}">{{ section.nav_title }}</a>
                     </li>                              
+                    {% endif %}
                 {% endfor %}                  
 
             </ul>
