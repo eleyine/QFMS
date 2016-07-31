@@ -9,6 +9,8 @@ from event.helpers import get_profile_pic_filename, get_image_filename
 
 class Item(models.Model):
     is_visible = models.BooleanField(default=True)
+    html_safe = models.BooleanField(default=False,
+        verbose_name='HTML Safe?')
 
     rank = models.IntegerField(
         default=999, 
@@ -25,6 +27,9 @@ class Item(models.Model):
         ordering = ('rank',)
 
 class Section(Item):
+
+    show_title = models.BooleanField(default=True,
+        verbose_name='Show section title')
     page = models.ForeignKey('Page')
     template = models.CharField(max_length=50, default='section.html')
 
@@ -38,6 +43,9 @@ class Section(Item):
     class Meta:
         abstract = True
         ordering = ('rank',)
+
+    def __unicode__(self):
+        return self.title
 
 class Cover(Section):
     SECTION_TYPE = 'cover'
@@ -59,7 +67,7 @@ class PerkItem(Item):
     fa_icon = models.CharField(max_length=20, blank=True,
         help_text='Icon code from http://fontawesome.io/icons/ (example: fa-coffee up will display the following icon http://fontawesome.io/icon/coffee/) ')
     image_icon = models.ImageField(null=True,
-        help_text='Not advised. Image will be resized to 60x60 pixels')
+        help_text='Not advised. Image will be resized to 60x60 pixels', blank=True)
 
 class SocialMediaSection(Section):
     SECTION_TYPE = 'social-media'
@@ -70,6 +78,9 @@ class SocialMediaSection(Section):
 
     show_facebook_link = models.BooleanField(default=False)
     facebook_link = models.TextField(blank=True, max_length=2000)
+    facebook_text = models.TextField(blank=True, max_length=2000)
+    facebook_name = models.TextField(blank=True, max_length=200)
+    facebook_picture = models.TextField(blank=True, max_length=500)
 
 class TalksSection(Section):
     SECTION_TYPE='talks'
@@ -82,14 +93,14 @@ class TalkItem(Item):
 class WorkshopsSection(Section):
     SECTION_TYPE = 'workshops'
 
-class WorkshopItem(models.Model):
+class WorkshopItem(Item):
     section = models.ForeignKey('WorkshopsSection',
         related_name='workshops')
-    moderators = models.ManyToManyField('Person')
-    location = models.ForeignKey('Place')
-    time = models.DateTimeField()
+    moderators = models.ManyToManyField('Person', blank=True)
+    location = models.ForeignKey('Place', blank=True)
+    time = models.DateTimeField(blank=True)
     duration = models.IntegerField(default=60, 
-        help_text='In minutes.')
+        help_text='In minutes.', blank=True)
 
     # IMAGE_FOLDER = 'workshops'
     # showcase_image = models.ImageField(
@@ -133,7 +144,7 @@ class FAQItem(models.Model):
 
 class VenueSection(Section):
     SECTION_TYPE = 'venue'
-    venue = models.ForeignKey('Place')
+    venue = models.ForeignKey('Place', blank=True)
 
 class TeamSection(Section):
     SECTION_TYPE = 'team'
