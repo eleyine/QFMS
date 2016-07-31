@@ -46,3 +46,4 @@ tmp/
 
 # Challenges
 registration/management/commands/encrypter.py
+event/fixtures/init.json
