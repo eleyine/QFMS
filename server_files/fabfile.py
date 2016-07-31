@@ -75,9 +75,10 @@ else:
 
 ########### PATH AND PROJECT NAME CONFIGURATION
 # Should not change if you do not modify this GitHub project
-GITHUB_PROJECT = 'https://github.com/eleyine/WearHacks-Website.git'
+GITHUB_PROJECT = 'https://github.com/eleyine/QFMS.git'
+
 DJANGO_PROJECT_DIR = '/home/django'
-DJANGO_PROJECT_NAME = 'WearHacks-Website'
+DJANGO_PROJECT_NAME = 'SEMF-Website'
 DJANGO_APP_NAME = 'smf_website'
 DJANGO_PROJECT_PATH = os.path.join(DJANGO_PROJECT_DIR, DJANGO_PROJECT_NAME)
 ########### END PATH AND PROJECT NAME CONFIGURATION
@@ -110,6 +111,65 @@ def _write_file(local_path, remote_path, options):
 
     print 'Overwriting %s' % (remote_path)
     put(TMP_PATH, remote_path)
+
+
+def install_packages(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH, apt_get_update=True):
+    """
+    Install packages required for this Django app
+
+    Prerequisites
+    --------
+    Create DigitalOcean droplet with Django installation
+
+    Options
+    -------
+        mode
+            default: DEFAULT_MODE
+        deploy_to
+            default: DEFAULT_DEPLOY_TO
+        branch [DEFAULT_BRANCH]
+            git branch to pull from
+        
+    """
+    env.hosts = DEPLOYMENT_HOSTS[deploy_to]
+    with settings(warn_only=True):
+        with settings(prompts=prompts):
+            if apt_get_update:
+                run('sudo apt-get update')
+                run('sudo apt-get upgrade')
+            # Require some Debian/Ubuntu packages
+            fabtools.require.deb.packages([
+                'git',
+                'npm',
+                'libpq-dev',
+                'python-dev',
+                'postgresql',
+                'postgresql-contrib',
+                'nginx',
+                'gunicorn',
+                'sqlite3',
+                'node-less',
+                'gettext'
+            ])
+
+        try:
+            run('ln -s /usr/bin/nodejs /usr/bin/node')
+        except:
+            pass
+
+        try:
+            run('which git')
+        except:
+            pass
+
+        NPM_PACKAGES = (
+            'bower', 
+            )
+        with settings(prompts=prompts, warn_only=True):
+            for package in NPM_PACKAGES:
+                print 'Installing %s as root...' % (package)
+                sudo('npm install -g %s' % (package))
+
 
 def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH):
     """
@@ -147,36 +207,9 @@ def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH)
     """
     env.hosts = DEPLOYMENT_HOSTS[deploy_to]
 
+
+    install_packages(mode=mode, deploy_to=deploy_to, branch=branch)
     with settings(warn_only=True):
-        with settings(prompts=prompts):
-            # Require some Debian/Ubuntu packages
-            fabtools.require.deb.packages([
-                'git',
-                'npm',
-                'libpq-dev',
-                'python-dev',
-                'postgresql',
-                'postgresql-contrib',
-                'nginx',
-                'gunicorn',
-                'sqlite3',
-                'node-less',
-                'gettext'
-            ])
-
-        try:
-            run('ln -s /usr/bin/nodejs /usr/bin/node')
-        except:
-            pass
-
-        NPM_PACKAGES = (
-            'bower', 
-            )
-        with settings(prompts=prompts, warn_only=True):
-            for package in NPM_PACKAGES:
-                print 'Installing %s as root...' % (package)
-                sudo('npm install -g %s' % (package))
-
 
         print 'Making django project directory at %s...' % (DJANGO_PROJECT_DIR)
         run('mkdir -p %s' % (DJANGO_PROJECT_DIR))
@@ -192,6 +225,7 @@ def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH)
         run("git config --global core.filemode false")
         update_conf_files(deploy_to=deploy_to)
         update_permissions(setup=True)
+
 
 def compile_messages(mode=DEFAULT_MODE):
     env_variables = _get_env_variables(mode=mode) 
