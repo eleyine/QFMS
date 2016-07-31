@@ -592,7 +592,6 @@ section.mentors .name p {
 }
 .portrait.img-circle img {
   -webkit-transform: translate(-50%);
-  margin-left: 90px;
 }
 .small-portrait.img-circle {
   height: 150px;

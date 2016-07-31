@@ -11,12 +11,14 @@
         {% for talk in section.talks.all %}
         <div class="row">
             <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
-                <div class="portrait img-circle hor">
+                <div class="portrait img-circle hor" style="background: #fff url('{% static "images/default/default_profile.png" %}') no-repeat center; background-size: 180px 180px;">
+                {% comment %}
                     {% if talk.speaker.profile_pic %}
                     <img src="{{ talk.speaker.profile_pic.url }}" alt="{{talk.speaker.first_name}} {{talk.speaker.last_name}}" height="180px">
                     {% else %}
-                    <img src="{% static 'images/default/default_profile.png' %}" alt="{{talk.speaker.first_name}} {{talk.speaker.last_name}}" height="180px">
+                    <img src="{% static 'images/default/default_profile.png' %}" alt="{{talk.speaker.first_name}} {{talk.speaker.last_name}}" height="180px" width="180px">
                     {% endif %}
+                {% endcomment %}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-0">
