@@ -33,7 +33,8 @@ try:
         DEPLOYMENT_PRIVATE_FILES,
         DEPLOYMENT_HOSTS,
         DEFAULT_BRANCH,
-        DJANGO_PASS)
+        DJANGO_PASS,
+        APPS)
 except ImportError, e:
     print e
     print 'Please update fab_config.py, see fab_config_example.py'
@@ -171,7 +172,7 @@ def install_packages(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFA
                 sudo('npm install -g %s' % (package))
 
 
-def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH):
+def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH, apt_get_update=False):
     """
     Sets up a DigitalOcean server 'droplet' using a Django One-Click Install Image.
 
@@ -208,7 +209,7 @@ def setup(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, branch=DEFAULT_BRANCH)
     env.hosts = DEPLOYMENT_HOSTS[deploy_to]
 
 
-    install_packages(mode=mode, deploy_to=deploy_to, branch=branch)
+    install_packages(mode=mode, deploy_to=deploy_to, branch=branch, apt_get_update=apt_get_update)
     with settings(warn_only=True):
 
         print 'Making django project directory at %s...' % (DJANGO_PROJECT_DIR)
@@ -258,22 +259,26 @@ def _update_permissions(debug=False, setup=False, only_static=False):
             with cd(DJANGO_PROJECT_PATH):
                 run('mkdir -p media')
                 run('mkdir -p assets')
-                run('mkdir -p registration/migrations')
+                for app in APPS:
+                    run('mkdir -p %s/migrations' % (app))
 
         # change permissions to static files
         sudo('chown -R django %s' % (DJANGO_PROJECT_PATH))
         sudo('chgrp -R staticusers %s' % (os.path.join(DJANGO_PROJECT_PATH, 'assets')))
         sudo('chgrp -R staticusers %s' % (os.path.join(DJANGO_PROJECT_PATH, 'media')))
+        sudo('chgrp -R staticusers %s' % (os.path.join(DJANGO_PROJECT_PATH, 'static')))
 
         with cd(DJANGO_PROJECT_PATH):    
             # all files under the project dir are owned by django (gunicorn's uid) is the owner
             if not only_static:
                 sudo("chmod -R 500 .") # r-x --- --- : django can only read and execute files by default
                 with settings(warn_only=True):
-                    sudo("chmod -R 700 registration/migrations") # rwx --- --- : django can write new migrations
+                    for app in APPS:
+                        sudo("chmod -R 700 %s/migrations" % (app)) # rwx --- --- : django can write new migrations
             
             sudo("chmod -R 644 assets") # rw- r-- r-- : assets can be read by nginx (var-www) as well as everyone else
             sudo("chmod -R 644 media") # rw- r-- r--
+            sudo("chmod -R 644 static") # rw- r-- r--
 
             if not only_static:
                 sudo("chmod -R 200 server_files/logs") # -w- r-- r--
@@ -319,9 +324,13 @@ def update_conf_files(deploy_to=DEFAULT_DEPLOY_TO, restart=True):
         })
 
     print 'Modifying nginx config'
+    server_name = DEPLOYMENT_HOSTS[deploy_to][0]
+    print 'Server name:', server_name
+
     _write_file('nginx.sh', '/etc/nginx/sites-enabled/django',
         {
-            'DJANGO_PROJECT_PATH': DJANGO_PROJECT_PATH
+            'DJANGO_PROJECT_PATH': DJANGO_PROJECT_PATH,
+            'SERVER_NAME': server_name
         })
 
     print 'Modifying gunicorn config'
@@ -394,22 +403,31 @@ def migrate(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, env_variables=None,
     print '\nMigrating database as user django'
 
     with shell_env(**env_variables):
+        print 'ENV VARIABLES', env_variables
         with cd(DJANGO_PROJECT_PATH):
             if reset_db:
-                with settings(warn_only=True):
-                    run('rm -rf registration/migrations')
-                with settings(warn_only=True):
-                    sudo("chmod -R 700 registration") # rwx --- --- : django can write new migrations
+                run('ls')                
+                for app in APPS:
+                    with settings(warn_only=True):
+                        run('rm -rf %s/migrations' % app)
+                    with settings(warn_only=True):
+                        sudo("chmod -R 700 %s" % app) # rwx --- --- : django can write new migrations
 
             env.user = 'django'
             env.password = DJANGO_PASS
 
             print '> Checking database backend'
+            # get django database pass, this is kind of hacky but wtv
+
+            private_settings = _get_private_settings(deploy_to=deploy_to)
+            try:
+                django_db_pass = private_settings.DB_PASS
+                print 'Django db pass', django_db_pass
+            except:
+                django_db_pass = ''
             run('echo "from django.db import connection; connection.vendor" | python manage.py shell')
 
-            # get django database pass, this is kind of hacky but wtv
-            private_settings = _get_private_settings(deploy_to=deploy_to)
-            django_db_pass = private_settings.DB_PASS
+            
             with settings(prompts={
                 "Password for user django: ": django_db_pass}):
                 if reset_db:
@@ -417,27 +435,35 @@ def migrate(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO, env_variables=None,
                     if mode == 'dev':
                         run('rm -rf smf_website/db.sqlite3')
                     else:
-                        with settings(warn_only=True):
-                            run('rm -rf registration/migrations')
-                        run('python manage.py sqlclear registration | python manage.py dbshell ')
+                        for app in APPS:
+                            with settings(warn_only=True):
+                                run('rm -rf %s/migrations' % (app))
+                            run('python manage.py flush %s | python manage.py dbshell ' % (app))
 
                 run('python manage.py makemigrations')
                 if setup:
                     run('python manage.py migrate --fake-initial') 
-                    run('python manage.py makemigrations registration')
-                    run('python manage.py migrate registration') 
+                    run('python manage.py makemigrations')
+
+                    for app in APPS:
+                        run('python manage.py makemigrations %s' % app)
+                    for app in APPS:
+                        run('python manage.py migrate %s' % app) 
                 elif reset_db:
-                    run('python manage.py migrate --fake')     
-                    run('python manage.py makemigrations registration')
+                    for app in APPS:  
+                        run('python manage.py makemigrations %s' % app)
+                        run('python manage.py migrate %s' % app)
                     run('python manage.py migrate --fake-initial')
-                    run('python manage.py migrate')
+                    run('python manage.py makemigrations')
+                    run('python manage.py migrate') 
                 else:
+                    run('python manage.py makemigrations')
                     run('python manage.py migrate')
-            if mode == 'dev' or reset_db:
-                if generate_dummy_data or reset_db:
-                    run('python manage.py generate_registrations 3 --reset')
-            env.user = 'root'
-            
+                    for app in APPS:  
+                        run('python manage.py makemigrations %s' % app)
+                    run('python manage.py migrate')
+
+            env.user = 'root'            
             if mode == 'prod':
                 print '> Checking postgresql status'
                 run('service postgresql status')
@@ -526,6 +552,7 @@ def _get_env_variables(mode=DEFAULT_MODE, deploy_to=DEFAULT_DEPLOY_TO):
         print 'Possible options:', DEPLOYMENT_MODES
         sys.exit()
     ev['APP_ENV'] = mode
+    # ev['ALLOWED_HOSTS'] = DEPLOYMENT_HOSTS[deploy_to]
     env.hosts = DEPLOYMENT_HOSTS[deploy_to]
     return ev
 
@@ -683,6 +710,29 @@ def get_fixtures(deploy_to=DEFAULT_DEPLOY_TO, mode=DEFAULT_MODE):
         with settings(hide('warnings')): 
             get(remote_path="%s/%s" % (DJANGO_PROJECT_PATH, fixture_path), local_path="%s" % (log_dir))
 
+def upload_data(deploy_to=DEFAULT_DEPLOY_TO, mode=DEFAULT_MODE):
+    env_variables = _get_env_variables(mode=mode) 
+    apps = ('registration', 'event')
+    for app in apps:
+        print 'Uploading %s app fixtures' % (app)
+        local_fixtures_file = os.path.join(LOCAL_DJANGO_PATH, app, 'fixtures', 'init.json')
+        remote_fixtures_folder = os.path.join(DJANGO_PROJECT_PATH, app, 'fixtures')
+        remote_fixtures_file = os.path.join(DJANGO_PROJECT_PATH, app, 'fixtures', 'init.json')
+        if os.path.exists(local_fixtures_file):
+            put(local_path=local_fixtures_file,remote_path=remote_fixtures_file)
+            # run('ls /home/django/SEMF-Website/event/' )
+            # run('ls /home/django/SEMF-Website/event/' )
+
+            run('ls %s' % (remote_fixtures_folder))
+
+
+            with shell_env(**env_variables):
+                with cd(DJANGO_PROJECT_PATH):
+                    run ('python manage.py loaddata -i %s' % (remote_fixtures_file))
+
+    # reboot(deploy_to=deploy_to, mode=mode)
+
+
 def get_logs(deploy_to=DEFAULT_DEPLOY_TO):
     """
     Copy django, nginx and gunicorn log files from remote to server_files/logs
@@ -703,5 +753,5 @@ def get_logs(deploy_to=DEFAULT_DEPLOY_TO):
 
 def all(deploy_to=DEFAULT_DEPLOY_TO, mode=DEFAULT_MODE):
     """Setup and reboot."""
-    setup(deploy_to=deploy_to, mode=mode)
+    setup(deploy_to=deploy_to, mode=mode, apt_get_update=True)
     reboot(deploy_to=deploy_to, mode=mode, setup=True)
