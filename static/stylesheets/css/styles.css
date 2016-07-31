@@ -10,6 +10,9 @@ section {
 .bg-light-gray {
   background-color: #f7f7f7;
 }
+.bg-primary {
+  background-color: #3e81fd;
+}
 hr.bg-white {
   border-color: #fff;
 }
@@ -38,7 +41,7 @@ header .background {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-image: url('../../images/montreal.jpg');
+  background-image: url('../../images/bg.jpg');
   opacity: 20;
   filter: alpha(opacity=2000);
   opacity: 0.4;
@@ -76,7 +79,7 @@ header .volunteer-for-us a.btn:hover:after {
   height: 50px;
 }
 header .header-content {
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 20px;
   padding-top: 20px;
   z-index: 100;
@@ -104,67 +107,79 @@ header .header-content-inner h3 a:hover {
     font-family: "Raleway", "Helvetica Neue", "Helvetica", sans-serif;
   }
 }
-header .header-content-inner .who .col {
+header .header-content-inner .row.who {
+  background-color: #fefefe;
+  opacity: 0.7;
+}
+@media (max-width: 600px) {
+  header .header-content-inner .row.who {
+    margin-top: 140px;
+  }
+}
+header .header-content-inner .row.who .col {
   min-height: 100px;
   height: 100px;
   max-height: 100px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
-header .header-content-inner .who .mascot {
+header .header-content-inner .row.who .mascot {
   display: block;
-  background-image: url('../../images/logo-white.png');
-  background-size: auto 90%;
+  background-image: url('../../images/logo.png');
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
 }
-header .header-content-inner .who .logo {
+header .header-content-inner .row.who .logo {
   display: block;
-  background-image: url('../../images/logo-text-white.png');
-  background-size: auto 85%;
+  background-image: url('../../images/logo-text.png');
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
 @media (max-width: 500px) {
-  header .header-content-inner .who .logo {
+  header .header-content-inner .row.who .logo {
     background-size: 90% auto;
   }
 }
-header .header-content-inner .who .info {
+header .header-content-inner .row.who .info {
   display: block;
 }
-header .header-content-inner .who .info div {
+header .header-content-inner .row.who .info div {
   display: block;
   min-height: 33%;
   height: 33%;
   max-height: 33%;
 }
-header .header-content-inner .who .info p {
+header .header-content-inner .row.who .info p {
   text-align: center;
   padding: 3px;
   vertical-align: middle;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #ffffff;
+  color: #3e81fd;
   font-size: 21px;
   line-height: 30px;
 }
-header .header-content-inner .who .info p.small {
+header .header-content-inner .row.who .info p.small {
   padding: 5px 0;
   font-size: 15px;
 }
 @media (max-width: 992px) {
-  header .header-content-inner .who .col {
+  header .header-content-inner .row.who .col {
     min-height: 80px;
     height: 80px;
     max-height: 80px;
   }
-  header .header-content-inner .who .info {
+  header .header-content-inner .row.who .mascot {
+    background-position: center;
+  }
+  header .header-content-inner .row.who .info {
     width: 100%;
     min-height: 10px;
     height: 10px;
   }
-  header .header-content-inner .who .info div {
+  header .header-content-inner .row.who .info div {
     height: 20px;
     min-height: 20px;
     max-height: 20px;
@@ -173,7 +188,7 @@ header .header-content-inner .who .info p.small {
     margin: auto;
     display: block;
   }
-  header .header-content-inner .who .info p {
+  header .header-content-inner .row.who .info p {
     text-align: middle;
     width: 100%;
     padding: 0;
@@ -181,7 +196,7 @@ header .header-content-inner .who .info p.small {
     line-height: 15px;
     font-size: 0.9em;
   }
-  header .header-content-inner .who .info p.small {
+  header .header-content-inner .row.who .info p.small {
     font-size: 0.9em;
     padding: 0;
   }
@@ -339,6 +354,9 @@ header .header-content-inner .how button {
 }
 #about img {
   margin-bottom: 20px;
+}
+#perks .fa {
+  color: #3e81fd;
 }
 #hardware .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .small {
   font-size: 11px;
@@ -508,7 +526,7 @@ header .header-content-inner .how button {
   position: relative;
   top: 15%;
   font-size: 40px;
-  color: #fae287;
+  color: #3e81fd;
   text-shadow: 2px 2px #c5a016;
 }
 #prizes p {

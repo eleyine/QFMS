@@ -19,6 +19,10 @@ section {
   background-color:#f7f7f7;
 }
 
+.bg-primary {
+    background-color: @theme-primary;
+}
+
 hr.bg-white {
     border-color: #fff;
 }
@@ -49,7 +53,7 @@ header {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        background-image: url('../../images/montreal.jpg');
+        background-image: url('../../images/bg.jpg');
 
         opacity: 20;
         filter: alpha(opacity=2000);
@@ -91,7 +95,7 @@ header {
     }
 
     .header-content {
-        margin-top: 50px;
+        margin-top: 0;
         margin-bottom: 20px;
         padding-top: 20px;
         // opacity: 0.8;
@@ -119,27 +123,34 @@ header {
                 font-family: "Raleway", "Helvetica Neue", "Helvetica", sans-serif;
             }
         }
-        .who {
+        .row.who {
 
+            background-color: #fefefe;
+            opacity: 0.7;
+
+                @media (max-width: 600px) {
+                margin-top: 140px;
+               }
+            
             .col {
                 min-height: @header-logo-height;
                 height: @header-logo-height;
                 max-height: @header-logo-height;
-                margin-bottom: 20px;
+                margin: 20px 0;
             }
             .mascot {
                 // border: 1px solid red;
                 display: block;
-                background-image: url('../../images/logo-white.png');
-                background-size: auto 90%;
+                background-image: url('../../images/logo.png');
+                background-size: auto 100%;
                 background-repeat: no-repeat;
-                background-position: center;
+                background-position: right;
             }
             .logo {
                 // border: 1px solid red;
                 display: block;
-                background-image: url('../../images/logo-text-white.png');
-                background-size: auto 85%;
+                background-image: url('../../images/logo-text.png');
+                background-size: auto 100%;
                 background-repeat: no-repeat;
                 background-position: center;
 
@@ -168,7 +179,7 @@ header {
                     text-transform: uppercase;
                     font-weight: 800;
                     letter-spacing: 2px;
-                    color: #ffffff;
+                    color: @theme-primary;
                     font-size: 21px;
                     line-height: 30px;
                     &.small {
@@ -185,6 +196,10 @@ header {
                     min-height: @header-logo-height-sm;
                     height: @header-logo-height-sm;
                     max-height: @header-logo-height-sm;
+
+                }
+                .mascot {
+                    background-position: center;
                 }
                 .info  {
                     width: 100%;
@@ -422,6 +437,12 @@ header {
     }
 }
 
+#perks {
+    .fa {
+        color: @theme-primary;
+    }
+}
+
 #hardware {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
         .small {
@@ -558,7 +579,7 @@ header {
     position: relative;
     top: 15%;
     font-size: 40px;
-    color: #fae287;
+    color: @theme-primary;
     text-shadow: 2px 2px #c5a016;
     }
 
