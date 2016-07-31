@@ -90,6 +90,9 @@ class TalkItem(Item):
         related_name='talks')
     speaker = models.ForeignKey('Person')
 
+    def __unicode__(self):
+        return '%s [%s]' % (self.title, self.section.title)
+
 class WorkshopsSection(Section):
     SECTION_TYPE = 'workshops'
 
