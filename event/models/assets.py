@@ -88,6 +88,7 @@ class Company(models.Model):
 class Person(models.Model):
     CATEGORIES = (
         ('O', _('Other')),
+        ('S', _('Speaker')),
         ('J', _('Judge')),
         ('M', _('Mentor')),
     )
