@@ -8,20 +8,29 @@ from django.core.validators import RegexValidator
 from event.helpers import get_profile_pic_filename, get_image_filename
 
 class SocialMediaAccount(models.Model):
-	username = models.CharField(max_length=30)
-	url = models.URLField(max_length=100, blank=True)
+    username = models.CharField(max_length=30,
+        help_text='If email address, add email here')
+    url = models.URLField(max_length=100, blank=True)
 
-	ACCOUNT_TYPE_CHOICES = (
-		('em', 'email'),
-		('wb', 'website'),
-		('tw', 'twitter'),
-		('fb', 'facebook'),
-		('gh', 'github'),
-		('ln', 'linkedin')
-		)
+    ACCOUNT_TYPE_CHOICES = (
+        ('em', 'email'),
+        ('wb', 'website'),
+        ('tw', 'twitter'),
+        ('fb', 'facebook'),
+        ('gh', 'github'),
+        ('ln', 'linkedin'),
+        ('yt', 'youtube')
 
-	account_types = models.CharField(max_length=2,
-		choices = ACCOUNT_TYPE_CHOICES)
+        )
+
+    account_type = models.CharField(max_length=2,
+        choices = ACCOUNT_TYPE_CHOICES)
+
+    def __unicode__(self):
+        if self.url:
+            return '%s (%s...) [%s]' % (self.username, self.url[:30], self.account_type)
+        else:
+            return '%s [%s]' % (self.username, self.account_type)            
 
 class PrizePerk(models.Model):
     rank = models.IntegerField(
