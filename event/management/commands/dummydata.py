@@ -6,6 +6,7 @@ from collections import defaultdict
 
 from event.models.main import Event
 from event.models.page import Page, SECTION_CLASSES
+from event.models.assets import Address, Place
 
 from loremipsum import get_sentence, get_paragraph
 
@@ -25,12 +26,12 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-
         if options['reset']:
             Event.objects.all().delete()
 
         event = Command.create_event()
         page = Command.create_page(event)
+
         Command.create_sections(page)
 
         self.stdout.write('Successfully generated dummy data')
@@ -62,8 +63,15 @@ class Command(BaseCommand):
             'cover': 'header.html',
             'about': 'about.html',
             'perks': 'perks.html',
-            
-            'venue': 'venue.html'
+            'venue': 'venue.html',
+            'talks': 'talks.html',
+            'workshops': 'workshops.html',
+            'faq': 'faq.html',
+            'team': 'team.html',
+            'social-media': 'social.html',
+            'sponsors': 'sponsors.html',
+            'partners': 'partners.html',
+            'contact': 'contact.html',
         })
         data = {
             'page': page,
@@ -71,6 +79,25 @@ class Command(BaseCommand):
             'template': section_templates[section_type],
 
         }
+
+        if section_type == 'venue':
+            # create a random place
+            address = Address.objects.create(
+                num = 2900,
+                street = 'boul. Edouard-Montpetit',
+                city = 'Montreal',
+                province = 'Quebec',
+                postal_code = 'H3T1J4',
+                )
+            address.save()
+            place = Place.objects.create(
+                address = address,
+                short_display_name = 'Pavillon Roger Gaudry',
+                website = 'http://plancampus.umontreal.ca/montreal/?tx_lbocampusmap_pi1%5Bbuilding%5D=386&tx_lbocampusmap_pi1%5Baction%5D=show&tx_lbocampusmap_pi1%5Bcontroller%5D=Building&cHash=ae1c3f78e3877a2c5aeeaee8092359cb',
+                latitude = 45.5025116,
+                longitude = -73.6158328,
+                )
+            data['venue'] = place
         return data
 
     @staticmethod
