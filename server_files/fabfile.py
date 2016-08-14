@@ -712,10 +712,10 @@ def get_fixtures(deploy_to=DEFAULT_DEPLOY_TO, mode=DEFAULT_MODE):
 
 def upload_data(deploy_to=DEFAULT_DEPLOY_TO, mode=DEFAULT_MODE):
     env_variables = _get_env_variables(mode=mode) 
-    apps = ('registration', 'event')
+    apps = ('event',)
     for app in apps:
-        print 'Uploading %s app fixtures' % (app)
         local_fixtures_file = os.path.join(LOCAL_DJANGO_PATH, app, 'fixtures', 'init.json')
+        print 'Uploading %s app fixtures from %s' % (app, local_fixtures_file)
         remote_fixtures_folder = os.path.join(DJANGO_PROJECT_PATH, app, 'fixtures')
         remote_fixtures_file = os.path.join(DJANGO_PROJECT_PATH, app, 'fixtures', 'init.json')
         if os.path.exists(local_fixtures_file):
