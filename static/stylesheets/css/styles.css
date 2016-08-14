@@ -50,7 +50,7 @@ header a.btn {
   margin: 10px 0;
 }
 header .how {
-  margin-top: 150px;
+  margin-top: 50px;
   padding-bottom: 10px;
 }
 header .how a.btn {
@@ -75,7 +75,7 @@ header .how a.btn:hover {
 }
 header .how a.btn:hover:after {
   font-size: 15px;
-  content: "Super!";
+  content: "Super !";
   min-height: 50px;
   height: 50px;
 }
@@ -111,6 +111,14 @@ header .header-content-inner h3 a:hover {
     font-family: "Raleway", "Helvetica Neue", "Helvetica", sans-serif;
   }
 }
+header .header-content-inner .description h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 21px;
+  color: rgba(220, 220, 240, 0.95);
+  text-transform: uppercase;
+}
 header .header-content-inner .row.who {
   background-color: #fefefe;
   opacity: 0.7;
@@ -121,15 +129,15 @@ header .header-content-inner .row.who {
   }
 }
 header .header-content-inner .row.who .col {
-  min-height: 100px;
-  height: 100px;
-  max-height: 100px;
+  min-height: 150px;
+  height: 150px;
+  max-height: 150px;
   margin: 20px 0;
 }
 header .header-content-inner .row.who .mascot {
   display: block;
   background-image: url('../../images/logo.png');
-  background-size: auto 100%;
+  background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -160,7 +168,7 @@ header .header-content-inner .row.who .info p {
   vertical-align: middle;
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #3e81fd;
   font-size: 21px;
   line-height: 30px;
@@ -168,6 +176,10 @@ header .header-content-inner .row.who .info p {
 header .header-content-inner .row.who .info p.small {
   padding: 5px 0;
   font-size: 15px;
+}
+header .header-content-inner .row.who .info p.venue {
+  font-size: 18px;
+  padding: 1px;
 }
 @media (max-width: 992px) {
   header .header-content-inner .row.who .col {

@@ -34,7 +34,7 @@ hr.bg-white {
 
 // HEADER
 
-@header-logo-height: 100px;
+@header-logo-height: 150px;
 @header-logo-height-sm: 80px;
 
 header {
@@ -63,7 +63,7 @@ header {
         margin: 10px 0;
     }
     .how {
-        margin-top: 150px;
+        margin-top: 50px;
         padding-bottom:10px;
     }
 
@@ -88,7 +88,7 @@ header {
             min-height: 50px;
             &:after {
                 font-size: 15px;
-                content: "Super!";
+                content: "Super !";
                 min-height: 50px;
                 height: 50px;
             }
@@ -128,6 +128,15 @@ header {
                 font-family: "Raleway", "Helvetica Neue", "Helvetica", sans-serif;
             }
         }
+
+        .description h3 {
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+font-weight: 700;
+letter-spacing: 2px;
+font-size: 21px;
+color: rgba(220, 220, 240, 0.95);
+text-transform: uppercase;
+        }
         .row.who {
 
             background-color: #fefefe;
@@ -147,7 +156,7 @@ header {
                 // border: 1px solid red;
                 display: block;
                 background-image: url('../../images/logo.png');
-                background-size: auto 100%;
+                background-size: auto 85%;
                 background-repeat: no-repeat;
                 background-position: right;
             }
@@ -183,13 +192,17 @@ header {
                     vertical-align: middle;
                     text-transform: uppercase;
                     font-weight: 800;
-                    letter-spacing: 2px;
+                    letter-spacing: 1px;
                     color: @theme-primary;
                     font-size: 21px;
                     line-height: 30px;
                     &.small {
                         padding: 5px 0;
                         font-size: 15px;
+                    }
+                    &.venue {
+                        font-size: 18px;
+                        padding: 1px;
                     }
                 }
             }

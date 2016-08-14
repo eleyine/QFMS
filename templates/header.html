@@ -10,29 +10,30 @@
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10 action-panel">
                         <div class="row who">
-                            <div class="col col-sm-12 col-md-2 mascot">
+                            <div class="col col-sm-12 col-md-3 mascot">
                             </div>
-                            <div class="col col-sm-12 col-md-7 logo">
+                            <div class="col col-sm-12 col-md-8 logo">
                             </div>
+                            <!--
                             <div class="col col-sm-12 col-md-3 info">
-                                <!-- <ul>
-                                <li>2-3 Oct 2015</li>
-                                <li>Montreal</li>
-                                <li>New Res Hall</li>
-                                </ul> -->
                                 <div><p class="small">{{event.start_date.day}}-{{event.end_date.day}} {{event.start_date.month|month_name}} {{event.start_date.year}}</p></div>
-                                <div><p>{{event.city}}</p></div>
-                                <div><p class="small">{{event.venue.short_display_name}}</p></div>
+                                {% if section.show_city %}<div><p>{{event.city}}</p></div> {% endif %}
+                                <div><p class="venue {% if section.show_city %}small{%endif%}">{{event.venue.short_display_name}}</p></div>
                             </div>
+                            -->
                         </div>
                         <div class="row">
-                        <div class="col-xs-offset-1 col-xs-10">
-                        <h3>{{section.subttile}}</h3>
+                        <div class="col-xs-offset-1 col-xs-10 description">
+                        {% if section.html_safe %}
+                            {{section.description| safe}}
+                        {% else %}
+                        <h3>{{section.description}}</h3>
+                        {% endif %}
                         </div>
                         </div>
                         <div class="row how">
                             <div class="col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
-                                <a href="#" target="_blank" class="btn btn-primary btn-xl btn-block">J'y serai !</a>
+                                <a href="#" target="_blank" class="btn btn-primary btn-xl btn-block">J'y serai</a>
                             </div>
                          </div>
                     </div>
