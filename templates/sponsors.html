@@ -21,11 +21,11 @@
       <!-- premium sponsors (1/row)-->
         {% for sponsor in sponsor_group.items %}
                 <div class="col-centered
-                    {% if sponsor_group.category = 'or' %}
-                    col-sm-12 
-                    {% elif sponsor_group.category = 'argent' %}
+                    {% if sponsor_group.category = 'Or' %}
+                    col-sm-12 col-md-12 
+                    {% elif sponsor_group.category = 'Argent' %}
                     col-xs-6 col-md-3
-                    {% elif sponsor_group.category = 'bronze' %}
+                    {% elif sponsor_group.category = 'Bronze' %}
                     col-xs-3 col-md-2
                     {% endif %}">       
 

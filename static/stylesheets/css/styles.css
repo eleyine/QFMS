@@ -451,23 +451,29 @@ section.partners .sponsor-logos-container.or a img {
 }
 section.sponsors .sponsor-logos-container.logos-standard,
 section.partners .sponsor-logos-container.logos-standard,
-section.sponsors .sponsor-logos-container.ar,
-section.partners .sponsor-logos-container.ar {
+section.sponsors .sponsor-logos-container.argent,
+section.partners .sponsor-logos-container.argent,
+section.sponsors .sponsor-logos-container.bronze,
+section.partners .sponsor-logos-container.bronze {
   height: 90px;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard,
   section.partners .sponsor-logos-container.logos-standard,
-  section.sponsors .sponsor-logos-container.ar,
-  section.partners .sponsor-logos-container.ar {
+  section.sponsors .sponsor-logos-container.argent,
+  section.partners .sponsor-logos-container.argent,
+  section.sponsors .sponsor-logos-container.bronze,
+  section.partners .sponsor-logos-container.bronze {
     margin: 5px 10px;
     height: 50px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a,
 section.partners .sponsor-logos-container.logos-standard a,
-section.sponsors .sponsor-logos-container.ar a,
-section.partners .sponsor-logos-container.ar a {
+section.sponsors .sponsor-logos-container.argent a,
+section.partners .sponsor-logos-container.argent a,
+section.sponsors .sponsor-logos-container.bronze a,
+section.partners .sponsor-logos-container.bronze a {
   white-space: nowrap;
   height: 70px;
   margin: 0;
@@ -476,31 +482,39 @@ section.partners .sponsor-logos-container.ar a {
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a,
   section.partners .sponsor-logos-container.logos-standard a,
-  section.sponsors .sponsor-logos-container.ar a,
-  section.partners .sponsor-logos-container.ar a {
+  section.sponsors .sponsor-logos-container.argent a,
+  section.partners .sponsor-logos-container.argent a,
+  section.sponsors .sponsor-logos-container.bronze a,
+  section.partners .sponsor-logos-container.bronze a {
     height: 40px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a .helper,
 section.partners .sponsor-logos-container.logos-standard a .helper,
-section.sponsors .sponsor-logos-container.ar a .helper,
-section.partners .sponsor-logos-container.ar a .helper {
+section.sponsors .sponsor-logos-container.argent a .helper,
+section.partners .sponsor-logos-container.argent a .helper,
+section.sponsors .sponsor-logos-container.bronze a .helper,
+section.partners .sponsor-logos-container.bronze a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 section.sponsors .sponsor-logos-container.logos-standard a img,
 section.partners .sponsor-logos-container.logos-standard a img,
-section.sponsors .sponsor-logos-container.ar a img,
-section.partners .sponsor-logos-container.ar a img {
+section.sponsors .sponsor-logos-container.argent a img,
+section.partners .sponsor-logos-container.argent a img,
+section.sponsors .sponsor-logos-container.bronze a img,
+section.partners .sponsor-logos-container.bronze a img {
   max-height: 70px;
   vertical-align: middle;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a img,
   section.partners .sponsor-logos-container.logos-standard a img,
-  section.sponsors .sponsor-logos-container.ar a img,
-  section.partners .sponsor-logos-container.ar a img {
+  section.sponsors .sponsor-logos-container.argent a img,
+  section.partners .sponsor-logos-container.argent a img,
+  section.sponsors .sponsor-logos-container.bronze a img,
+  section.partners .sponsor-logos-container.bronze a img {
     max-height: 40px;
   }
 }
