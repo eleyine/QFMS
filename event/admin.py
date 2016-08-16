@@ -79,7 +79,7 @@ admin.site.register(Page, PageAdmin)
 admin.site.register(PerkItem)
 admin.site.register(WorkshopItem)
 admin.site.register(TalkItem)
-admin.site.register(Sponsor)
+admin.site.register(SponsorItem)
 
 admin.site.register(SocialMediaAccount)
 
