@@ -69,6 +69,10 @@ class PerkItem(Item):
         help_text='Icon code from http://fontawesome.io/icons/ (example: fa-coffee up will display the following icon http://fontawesome.io/icon/coffee/) ')
     image_icon = models.ImageField(null=True,
         help_text='Not advised. Image will be resized to 60x60 pixels', blank=True)
+    
+    def __unicode__(self):
+        return self.title()
+
 
 class SocialMediaSection(Section):
     SECTION_TYPE = 'social-media'
