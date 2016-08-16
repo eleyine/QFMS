@@ -181,7 +181,7 @@ class SponsorItem(models.Model):
         return dict(CATEGORIES)[self.category]
 
     def __unicode__(self):
-        return self.name
+        return '%s (%s)' % (self.company.name, self.category)
 
 class PartnersSection(Section):
     SECTION_TYPE='partners'
