@@ -211,6 +211,8 @@ class Page(models.Model):
     event = models.ForeignKey('Event', 
         related_name='pages')
     title = models.CharField(max_length=20)
+    show_title_in_navigation_bar = models.BooleanField(default=True)
+    show_logo_in_navigation_bar = models.BooleanField(default=False)
 
     def get_sections(self):
         section_objs = []

@@ -13,7 +13,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="{{page.event.url}}">{{page.event.title}}</a>
+
+            <a class="navbar-brand page-scroll 
+            {% if page.show_logo_in_navigation_bar %} navbar-brand-logo {% endif %}
+            " href="{{page.event.url}}">
+            {% if page.show_title_in_navigation_bar %}
+              {{page.event.title}}
+            {% endif %}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

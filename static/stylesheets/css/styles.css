@@ -295,6 +295,14 @@ header .header-content-inner .how button {
 .navbar.affix .social-btns > * > *:first-child {
   color: #3a3a3c;
 }
+.navbar.affix .navbar-brand-logo {
+  background-image: url('../../images/logo-text.png');
+  background-size: 150px auto;
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-left: 10px;
+  width: 160px;
+}
 .navbar .language-selection {
   margin-top: 10px;
   color: #fff;
