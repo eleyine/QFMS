@@ -2,7 +2,7 @@ from django.contrib import admin
 from event.models.main import Event
 import event
 from event.models.page import Page, Section, SECTION_CLASSES, PerkItem, WorkshopItem, TalkItem
-from event.models.assets import Person, Company, Prize, PrizePerk, Place, Address, SocialMediaAccount
+from event.models.assets import Person, Company, Prize, PrizePerk, Place, Address, SocialMediaAccount, Sponsor
 
 
 class CustomStackedInline(admin.StackedInline):
@@ -79,6 +79,7 @@ admin.site.register(Page, PageAdmin)
 admin.site.register(PerkItem)
 admin.site.register(WorkshopItem)
 admin.site.register(TalkItem)
+admin.site.register(Sponsor)
 
 admin.site.register(SocialMediaAccount)
 
