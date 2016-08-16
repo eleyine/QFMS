@@ -29,7 +29,7 @@
                     col-xs-3 col-md-2
                     {% endif %}">       
 
-                      <div class="sponsor-logos-container  {{sponsor.name|slugify}}">
+                      <div class="sponsor-logos-container  {{sponsor.name|slugify}} {{sponsor_group.category|slugify}}">
                         <a href="{{sponsor.url}}" target="_blank">
                           <span class="helper"></span>
                           <img class="img-responsive" src="{% static sponsor.company.image.url %}">

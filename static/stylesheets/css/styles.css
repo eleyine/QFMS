@@ -414,13 +414,17 @@ section.partners .sponsor-logos-container img {
 section.sponsors .sponsor-logos-container.logos-premium,
 section.partners .sponsor-logos-container.logos-premium,
 section.sponsors .sponsor-logos-container.logos-partner,
-section.partners .sponsor-logos-container.logos-partner {
+section.partners .sponsor-logos-container.logos-partner,
+section.sponsors .sponsor-logos-container.or,
+section.partners .sponsor-logos-container.or {
   height: 140px;
 }
 section.sponsors .sponsor-logos-container.logos-premium a,
 section.partners .sponsor-logos-container.logos-premium a,
 section.sponsors .sponsor-logos-container.logos-partner a,
-section.partners .sponsor-logos-container.logos-partner a {
+section.partners .sponsor-logos-container.logos-partner a,
+section.sponsors .sponsor-logos-container.or a,
+section.partners .sponsor-logos-container.or a {
   white-space: nowrap;
   height: 120px;
   margin: 0;
@@ -429,7 +433,9 @@ section.partners .sponsor-logos-container.logos-partner a {
 section.sponsors .sponsor-logos-container.logos-premium a .helper,
 section.partners .sponsor-logos-container.logos-premium a .helper,
 section.sponsors .sponsor-logos-container.logos-partner a .helper,
-section.partners .sponsor-logos-container.logos-partner a .helper {
+section.partners .sponsor-logos-container.logos-partner a .helper,
+section.sponsors .sponsor-logos-container.or a .helper,
+section.partners .sponsor-logos-container.or a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -437,23 +443,31 @@ section.partners .sponsor-logos-container.logos-partner a .helper {
 section.sponsors .sponsor-logos-container.logos-premium a img,
 section.partners .sponsor-logos-container.logos-premium a img,
 section.sponsors .sponsor-logos-container.logos-partner a img,
-section.partners .sponsor-logos-container.logos-partner a img {
+section.partners .sponsor-logos-container.logos-partner a img,
+section.sponsors .sponsor-logos-container.or a img,
+section.partners .sponsor-logos-container.or a img {
   max-height: 120px;
   vertical-align: middle;
 }
 section.sponsors .sponsor-logos-container.logos-standard,
-section.partners .sponsor-logos-container.logos-standard {
+section.partners .sponsor-logos-container.logos-standard,
+section.sponsors .sponsor-logos-container.ar,
+section.partners .sponsor-logos-container.ar {
   height: 90px;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard,
-  section.partners .sponsor-logos-container.logos-standard {
+  section.partners .sponsor-logos-container.logos-standard,
+  section.sponsors .sponsor-logos-container.ar,
+  section.partners .sponsor-logos-container.ar {
     margin: 5px 10px;
     height: 50px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a,
-section.partners .sponsor-logos-container.logos-standard a {
+section.partners .sponsor-logos-container.logos-standard a,
+section.sponsors .sponsor-logos-container.ar a,
+section.partners .sponsor-logos-container.ar a {
   white-space: nowrap;
   height: 70px;
   margin: 0;
@@ -461,24 +475,32 @@ section.partners .sponsor-logos-container.logos-standard a {
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a,
-  section.partners .sponsor-logos-container.logos-standard a {
+  section.partners .sponsor-logos-container.logos-standard a,
+  section.sponsors .sponsor-logos-container.ar a,
+  section.partners .sponsor-logos-container.ar a {
     height: 40px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a .helper,
-section.partners .sponsor-logos-container.logos-standard a .helper {
+section.partners .sponsor-logos-container.logos-standard a .helper,
+section.sponsors .sponsor-logos-container.ar a .helper,
+section.partners .sponsor-logos-container.ar a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 section.sponsors .sponsor-logos-container.logos-standard a img,
-section.partners .sponsor-logos-container.logos-standard a img {
+section.partners .sponsor-logos-container.logos-standard a img,
+section.sponsors .sponsor-logos-container.ar a img,
+section.partners .sponsor-logos-container.ar a img {
   max-height: 70px;
   vertical-align: middle;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a img,
-  section.partners .sponsor-logos-container.logos-standard a img {
+  section.partners .sponsor-logos-container.logos-standard a img,
+  section.sponsors .sponsor-logos-container.ar a img,
+  section.partners .sponsor-logos-container.ar a img {
     max-height: 40px;
   }
 }
