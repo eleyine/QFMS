@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 
-<section id="sponsors" class="sponsors">
+<section id="{{ section.nav_title | slugify }}"  class="sponsors">
   <div class="container ">
     {% for sponsor_group in section.sponsors_by_category %}
     <div class="row col-lg-12 text-center">
