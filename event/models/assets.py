@@ -57,7 +57,7 @@ class Prize(models.Model):
     description = models.TextField(max_length=300,
         help_text='What to do to get this prize?', blank=True)
     perks = models.ManyToManyField('PrizePerk', blank=True)
-    sponsor = models.ForeignKey('Sponsor', blank=True, null=True)
+    sponsor = models.ForeignKey('SponsorItem', blank=True, null=True)
     image = models.ImageField(
         upload_to=get_image_filename,
         blank=True)

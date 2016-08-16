@@ -160,7 +160,7 @@ class TeamSection(Section):
 
 class SponsorsSection(Section):
     SECTION_TYPE='sponsors'
-    sponsors = models.ManyToManyField('Sponsor')
+    sponsors = models.ManyToManyField('SponsorItem')
 
 class SponsorItem(models.Model):
     company = models.ForeignKey('Company')
@@ -185,7 +185,7 @@ class SponsorItem(models.Model):
 
 class PartnersSection(Section):
     SECTION_TYPE='partners'
-    partners = models.ManyToManyField('Sponsor')
+    partners = models.ManyToManyField('SponsorItem')
 
 
 class ContactSection(Section):
