@@ -1,121 +1,48 @@
 {% load staticfiles %}
 
-{% if sponsors.global_premium or sponsors.global_standard or sponsors.local_premium or sponsors.local_standard %}
+
 <section id="sponsors" class="sponsors">
-  <div class="container">
-  {% if sponsors.global_premium or sponsors.global_standard %}
+  <div class="container ">
+    {% for sponsor_group in section.sponsors_by_category %}
     <div class="row col-lg-12 text-center">
-      <div class="section-heading">
-          <h1>Global Sponsors</h1>
-          <hr class="primary">
+      <div class="section-heading {{sponsor_group.category|slugify}}">
+      {% if sponsor_group.items|length = 1 %}
+          <h1>Commaditaire {{sponsor_group.category}}</h1>
+      {% endif %}
+      {% if sponsor_group.items|length > 1 %}
+          <h1>Commanditaires {{sponsor_group.category}}</h1>
+      {% endif %}
+      <hr >
       </div>
     </div>
-
+    <div class="row {{sponsor_group.category|slugify}}">
+      <div class="col-sm-offset-1 col-sm-10 text-center">
+        <div class="row">
       <!-- premium sponsors (1/row)-->
-      {% if sponsors.global_premium %}
-        {% for sponsor in sponsors.global_premium %}
-          <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-              <div class="sponsor-logos-container logos-premium {{sponsor.name|slugify}}">
-                <a href="{{sponsor.url}}" target="_blank">
-                  <span class="helper"></span>
-                  <img class="img-responsive" src="{% static sponsor.image.url %}">
-                </a>           
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+        {% for sponsor in sponsor_group.items %}
+                <div class="col-centered
+                    {% if sponsor_group.category = 'Or' %}
+                    col-sm-12 
+                    {% elif sponsor_group.category = 'Ar' %}
+                    col-xs-6 col-md-3
+                    {% elif sponsor_group.category = 'Br' %}
+                    col-xs-3 col-md-2
+                    {% endif %}">       
 
-      <!-- standard sponsors (4/row)-->
-      {% if sponsors.global_standard %}
-          <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-              <div class="row">
-                {% for sponsor in sponsors.global_standard %}
-                <div class="col-xs-6 col-md-3 col-centered">
-                  <div class="sponsor-logos-container logos-standard {{sponsor.name|slugify}}">
-                    <a href="{{sponsor.url}}" target="_blank">
-                      <span class="helper"></span>
-                      <img class="img-responsive" src="{% static sponsor.image.url %}">
-                    </a>        
-                  </div>
+                      <div class="sponsor-logos-container  {{sponsor.name|slugify}}">
+                        <a href="{{sponsor.url}}" target="_blank">
+                          <span class="helper"></span>
+                          <img class="img-responsive" src="{% static sponsor.image.url %}">
+                        </a>           
+                      </div>
                 </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-      {% endif %}
-  {% endif %}
-
-  {% if sponsors.local_premium or sponsors.local_standard %}
-    <div class="row col-lg-12 text-center">
-      <div class="section-heading">
-          <h1>City Sponsors</h1>
-          <hr class="primary">
+        {% endfor %}
+        </div>
       </div>
     </div>
-
-      <!-- premium sponsors (1/row)-->
-      {% if sponsors.local_premium %}
-        {% for sponsor in sponsors.local_premium %}
-          <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-              <div class="sponsor-logos-container logos-premium {{sponsor.name|slugify}}">
-                <a href="{{sponsor.url}}" target="_blank">
-                  <span class="helper"></span>
-                  <img class="img-responsive" src="{% static sponsor.image.url %}">
-                </a>           
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
-
-      <!-- standard sponsors (4/row)-->
-      {% if sponsors.local_standard %}
-          <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-              <div class="row">
-                {% for sponsor in sponsors.local_standard %}
-                <div class="col-xs-6 col-md-3 col-centered">
-                  <div class="sponsor-logos-container logos-standard {{sponsor.name|slugify}}">
-                    <a href="{{sponsor.url}}" target="_blank">
-                      <span class="helper"></span>
-                      <img class="img-responsive" src="{% static sponsor.image.url %}">
-                    </a>        
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-      {% endif %}
-
-      <!-- community sponsors (6/row)-->
-      {% if sponsors.community %}
-          <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-              <div class="row">
-                {% for sponsor in sponsors.community %}
-                <div class="col-xs-3 col-md-2 col-centered">
-                  <div class="sponsor-logos-container logos-standard {{sponsor.name|slugify}}">
-                    <a href="{{sponsor.url}}" target="_blank">
-                      <span class="helper"></span>
-                      <img class="img-responsive" src="{% static sponsor.image.url %}">
-                    </a>        
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-      {% endif %}
-
-  {% endif %}
+    {% endfor %}
     <div class="row col-lg-12 text-center">
-        <h4>Interested in sponsoring? E-mail us at <a href="mailto:montreal@wearhacks.com">montreal@wearhacks.com</a>!
+        <h4>Voulez-vous devenir commanditaire ? Envoyez un courriel à <a href="mailto:{{section.sponsor_contact}}">{{section.sponsor_contact}}</a> ! </h4>
     </div>
   </div>
 </section>
-{% endif %}

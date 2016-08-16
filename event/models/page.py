@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as __
 
 import re, datetime
+from collections import defaultdict
 from pytz import timezone
 from django.core.validators import RegexValidator
 from event.helpers import get_profile_pic_filename, get_image_filename
@@ -161,10 +162,30 @@ class TeamSection(Section):
 class SponsorsSection(Section):
     SECTION_TYPE='sponsors'
     sponsors = models.ManyToManyField('SponsorItem')
+    sponsor_contact = models.EmailField(blank=True)
+
+    @property
+    def sponsors_by_category(self):
+        d = defaultdict(list)
+        for sponsor in self.sponsors.all():
+            d[sponsor.category].append(sponsor)
+
+        # order sponsors by category
+        sponsor_list = []
+        for c_short, c_long in SponsorItem.CATEGORIES:
+            if c_short in d.keys():
+                sponsor_list.append({
+                    'category': c_long,
+                    'items': d[c_short]
+                })
+        return sponsor_list
 
 class SponsorItem(models.Model):
     company = models.ForeignKey('Company')
     CATEGORIES = (
+        ('Or', 'Or'),
+        ('Ar', 'Argent'),
+        ('Br', 'Bronze'),
         ('ST', _('Local Standard')),
         ('PR', _('Local Premium')),
         ('CM', _('Community')),
