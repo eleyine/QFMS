@@ -162,7 +162,7 @@ class SponsorsSection(Section):
     SECTION_TYPE='sponsors'
     sponsors = models.ManyToManyField('Sponsor')
 
-class Sponsor(models.Model):
+class SponsorItem(models.Model):
     company = models.ForeignKey('Company')
     CATEGORIES = (
         ('ST', _('Local Standard')),
