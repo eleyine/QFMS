@@ -582,7 +582,22 @@ section.partners {
             } 
         }
 
-        .section-heading {
+        /* Special cases */
+        &.softlayer a img {
+            max-width: 500px;
+            @media (max-width: 600px) {
+                max-width: 90%;
+            }
+        }
+    }
+    .sponsor-item {
+        text-align: center;
+        font-size: 17px;
+        line-height: 25px;
+        color: #999999;
+    }
+
+    .section-heading {
             h1 {
                 text-transform: uppercase;
                 font-weight: bold;
@@ -607,20 +622,6 @@ section.partners {
                 background: rgba(200, 153, 80, 0.7);
             }    
         }
-        /* Special cases */
-        &.softlayer a img {
-            max-width: 500px;
-            @media (max-width: 600px) {
-                max-width: 90%;
-            }
-        }
-    }
-    .sponsor-item {
-        text-align: center;
-        font-size: 17px;
-        line-height: 25px;
-        color: #999999;
-    }
 }
 
 section.prizes {
