@@ -484,6 +484,8 @@ section.hardware {
     }
 }
 
+
+
 section.sponsors,
 section.partners {
     .col-centered {
@@ -491,6 +493,7 @@ section.partners {
         margin: 0 auto;
         display:inline-block;
     }
+
     .sponsor-logos-container {
         text-align: center;
         margin: 10px 15px;
@@ -579,6 +582,31 @@ section.partners {
             } 
         }
 
+        .section-heading {
+            h1 {
+                text-transform: uppercase;
+                font-weight: bold;
+                display:inline-block;
+                padding: 5px 10px;
+                color: #fff;
+                border-radius: 3px;  
+            }
+
+            &.diamant h1 {
+                border: 3px solid #3e81fd;
+                background: rgba(62, 129, 263, 0.7);    
+            }
+
+            &.platine h1 {
+                border: 3px solid #888;
+                background: rgba(150, 160, 150, 0.7);
+            }
+
+            &.or h1 {
+                border: 3px solid #c89950;
+                background: rgba(200, 153, 80, 0.7);
+            }    
+        }
         /* Special cases */
         &.softlayer a img {
             max-width: 500px;

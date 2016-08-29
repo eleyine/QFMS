@@ -415,16 +415,16 @@ section.sponsors .sponsor-logos-container.logos-premium,
 section.partners .sponsor-logos-container.logos-premium,
 section.sponsors .sponsor-logos-container.logos-partner,
 section.partners .sponsor-logos-container.logos-partner,
-section.sponsors .sponsor-logos-container.or,
-section.partners .sponsor-logos-container.or {
+section.sponsors .sponsor-logos-container.diamant,
+section.partners .sponsor-logos-container.diamant {
   height: 140px;
 }
 section.sponsors .sponsor-logos-container.logos-premium a,
 section.partners .sponsor-logos-container.logos-premium a,
 section.sponsors .sponsor-logos-container.logos-partner a,
 section.partners .sponsor-logos-container.logos-partner a,
-section.sponsors .sponsor-logos-container.or a,
-section.partners .sponsor-logos-container.or a {
+section.sponsors .sponsor-logos-container.diamant a,
+section.partners .sponsor-logos-container.diamant a {
   white-space: nowrap;
   height: 120px;
   margin: 0;
@@ -434,8 +434,8 @@ section.sponsors .sponsor-logos-container.logos-premium a .helper,
 section.partners .sponsor-logos-container.logos-premium a .helper,
 section.sponsors .sponsor-logos-container.logos-partner a .helper,
 section.partners .sponsor-logos-container.logos-partner a .helper,
-section.sponsors .sponsor-logos-container.or a .helper,
-section.partners .sponsor-logos-container.or a .helper {
+section.sponsors .sponsor-logos-container.diamant a .helper,
+section.partners .sponsor-logos-container.diamant a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -444,36 +444,30 @@ section.sponsors .sponsor-logos-container.logos-premium a img,
 section.partners .sponsor-logos-container.logos-premium a img,
 section.sponsors .sponsor-logos-container.logos-partner a img,
 section.partners .sponsor-logos-container.logos-partner a img,
-section.sponsors .sponsor-logos-container.or a img,
-section.partners .sponsor-logos-container.or a img {
+section.sponsors .sponsor-logos-container.diamant a img,
+section.partners .sponsor-logos-container.diamant a img {
   max-height: 120px;
   vertical-align: middle;
 }
 section.sponsors .sponsor-logos-container.logos-standard,
 section.partners .sponsor-logos-container.logos-standard,
-section.sponsors .sponsor-logos-container.argent,
-section.partners .sponsor-logos-container.argent,
-section.sponsors .sponsor-logos-container.bronze,
-section.partners .sponsor-logos-container.bronze {
+section.sponsors .sponsor-logos-container.platine,
+section.partners .sponsor-logos-container.platine {
   height: 90px;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard,
   section.partners .sponsor-logos-container.logos-standard,
-  section.sponsors .sponsor-logos-container.argent,
-  section.partners .sponsor-logos-container.argent,
-  section.sponsors .sponsor-logos-container.bronze,
-  section.partners .sponsor-logos-container.bronze {
+  section.sponsors .sponsor-logos-container.platine,
+  section.partners .sponsor-logos-container.platine {
     margin: 5px 10px;
     height: 50px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a,
 section.partners .sponsor-logos-container.logos-standard a,
-section.sponsors .sponsor-logos-container.argent a,
-section.partners .sponsor-logos-container.argent a,
-section.sponsors .sponsor-logos-container.bronze a,
-section.partners .sponsor-logos-container.bronze a {
+section.sponsors .sponsor-logos-container.platine a,
+section.partners .sponsor-logos-container.platine a {
   white-space: nowrap;
   height: 70px;
   margin: 0;
@@ -482,39 +476,31 @@ section.partners .sponsor-logos-container.bronze a {
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a,
   section.partners .sponsor-logos-container.logos-standard a,
-  section.sponsors .sponsor-logos-container.argent a,
-  section.partners .sponsor-logos-container.argent a,
-  section.sponsors .sponsor-logos-container.bronze a,
-  section.partners .sponsor-logos-container.bronze a {
+  section.sponsors .sponsor-logos-container.platine a,
+  section.partners .sponsor-logos-container.platine a {
     height: 40px;
   }
 }
 section.sponsors .sponsor-logos-container.logos-standard a .helper,
 section.partners .sponsor-logos-container.logos-standard a .helper,
-section.sponsors .sponsor-logos-container.argent a .helper,
-section.partners .sponsor-logos-container.argent a .helper,
-section.sponsors .sponsor-logos-container.bronze a .helper,
-section.partners .sponsor-logos-container.bronze a .helper {
+section.sponsors .sponsor-logos-container.platine a .helper,
+section.partners .sponsor-logos-container.platine a .helper {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 section.sponsors .sponsor-logos-container.logos-standard a img,
 section.partners .sponsor-logos-container.logos-standard a img,
-section.sponsors .sponsor-logos-container.argent a img,
-section.partners .sponsor-logos-container.argent a img,
-section.sponsors .sponsor-logos-container.bronze a img,
-section.partners .sponsor-logos-container.bronze a img {
+section.sponsors .sponsor-logos-container.platine a img,
+section.partners .sponsor-logos-container.platine a img {
   max-height: 70px;
   vertical-align: middle;
 }
 @media (max-width: 600px) {
   section.sponsors .sponsor-logos-container.logos-standard a img,
   section.partners .sponsor-logos-container.logos-standard a img,
-  section.sponsors .sponsor-logos-container.argent a img,
-  section.partners .sponsor-logos-container.argent a img,
-  section.sponsors .sponsor-logos-container.bronze a img,
-  section.partners .sponsor-logos-container.bronze a img {
+  section.sponsors .sponsor-logos-container.platine a img,
+  section.partners .sponsor-logos-container.platine a img {
     max-height: 40px;
   }
 }
@@ -558,6 +544,30 @@ section.partners .sponsor-logos-container.logos-partner a img {
   section.partners .sponsor-logos-container.logos-partner a img {
     max-height: 70px;
   }
+}
+section.sponsors .sponsor-logos-container .section-heading h1,
+section.partners .sponsor-logos-container .section-heading h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 3px;
+}
+section.sponsors .sponsor-logos-container .section-heading.diamant h1,
+section.partners .sponsor-logos-container .section-heading.diamant h1 {
+  border: 3px solid #3e81fd;
+  background: rgba(62, 129, 255, 0.7);
+}
+section.sponsors .sponsor-logos-container .section-heading.platine h1,
+section.partners .sponsor-logos-container .section-heading.platine h1 {
+  border: 3px solid #888;
+  background: rgba(150, 160, 150, 0.7);
+}
+section.sponsors .sponsor-logos-container .section-heading.or h1,
+section.partners .sponsor-logos-container .section-heading.or h1 {
+  border: 3px solid #c89950;
+  background: rgba(200, 153, 80, 0.7);
 }
 section.sponsors .sponsor-logos-container.softlayer a img,
 section.partners .sponsor-logos-container.softlayer a img {

@@ -12,7 +12,6 @@
       {% if sponsor_group.items|length > 1 %}
           <h1>Commanditaires {{sponsor_group.category}}</h1>
       {% endif %}
-      <hr >
       </div>
     </div>
     <div class="row {{sponsor_group.category|slugify}}">
@@ -21,12 +20,12 @@
       <!-- premium sponsors (1/row)-->
         {% for sponsor in sponsor_group.items %}
                 <div class="col-centered
-                    {% if sponsor_group.category = 'Or' %}
+                    {% if sponsor_group.category = 'Diamant' %}
                     col-sm-12 col-md-12 
-                    {% elif sponsor_group.category = 'Argent' %}
-                    col-xs-6 col-md-3
-                    {% elif sponsor_group.category = 'Bronze' %}
-                    col-xs-3 col-md-2
+                    {% elif sponsor_group.category = 'Platine' %}
+                    col-xs-6 col-md-4
+                    {% elif sponsor_group.category = 'Or' %}
+                    col-xs-3 col-md-3
                     {% endif %}">       
 
                       <div class="sponsor-logos-container  {{sponsor.name|slugify}} {{sponsor_group.category|slugify}}">
