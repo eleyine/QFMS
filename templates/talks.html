@@ -43,7 +43,11 @@
                 {% endif %}
                 </div>
                 <div>
+                    {% if talk.html_safe %}
+                    {{talk.description|safe}}
+                    {% else %}
                     <p>{{talk.description}}</p>
+                    {% endif %}
                 </div>
                 {% if talk.speaker.biography %}
                 <p class="moderated-by muted">À propos du Conférencier</p>
