@@ -75,7 +75,7 @@ class PerkItem(Item):
         help_text='Not advised. Image will be resized to 60x60 pixels', blank=True)
     
     def __unicode__(self):
-        return self.title()
+        return self.title
 
 
 class SocialMediaSection(Section):
