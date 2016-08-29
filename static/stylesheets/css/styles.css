@@ -729,7 +729,7 @@ section.schedule p.activity.workshop {
   font-size: 14px;
 }
 section.schedule p.activity.workshop:before {
-  content: "Workshop";
+  content: "Conférences et Ateliers";
   display: inline-block;
   font-size: 8px;
   text-transform: uppercase;

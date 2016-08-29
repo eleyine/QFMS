@@ -213,6 +213,8 @@ class PartnersSection(Section):
     SECTION_TYPE='partners'
     partners = models.ManyToManyField('SponsorItem')
 
+class ScheduleSection(Section):
+    SECTION_TYPE = 'schedule'
 
 class ContactSection(Section):
     SECTION_TYPE = 'contact'
@@ -230,6 +232,7 @@ SECTION_CLASSES = (
     TeamSection,
     SponsorsSection,
     PartnersSection,
+    ScheduleSection,
     ContactSection,
     )
 

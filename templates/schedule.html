@@ -1,256 +1,111 @@
 {% load i18n %}
 
-<section id="schedule" class="bg-primary">
+<section id="{{ section.nav_title | slugify }}" class="bg-primary schedule" class="bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 text-center">
-                <h2 class="section-heading">Schedule</h2>
+                <h2 class="section-heading">{{section.title}}</h2>
                 <hr class="bg-white">
             </div>
-            <div class="col-xs-10 col-xs-offset-1 text-center">
-                <p><emph>{% trans 'Midnight Snacks Available Every Day' %}</emph></p>
-            </div>
-            <div class="col-md-3 col-md-offset-0 col-sm-10 col-sm-offset-1 text-center">
-
-                <h4 class="service-heading"><span>{% trans 'Friday, Oct 2nd' %}</span></h4>
+            <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 text-center">
+                <h4 class="service-heading"><span>Avant-Midi</span></h4>
                 <div style="text-align:left; max-width:600px; margin:auto;">
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>06:30 PM</strong></p>
+                            <p class="time"><strong>08:00</strong></p>
                                 <p class="activity">
-                                    {% trans 'Doors Open and Registration Mixer' %}
+                                    Inscription + Déjeuner + Kiosques
                                 </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>06:30 PM - 7:25pm</strong></p>
+                            <p class="time"><strong>09:00 - 09:30</strong></p>
                                 <p class="activity">
-                                    {% trans 'Networking' %}
+                                    Discours de bienvenue</br>
+                                    Mot de bienvenu de <b>la doyenne de la faculté de médecine de l’Université de Montréal</b></br>Discours de la <b>FMOQ</b></br>
+                                    Mot de bienvenue du <b>Dr. Jean Pelletier</b></br>
+                                    Vidéo pré-enregistré du <b>Dr. David Saint-Jacques</b>
                                 </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>07:30 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Opening Ceremony' %}
+                            <p class="time"><strong>10:00 - 10:45</strong></p>
+                                <p class="activity workshop">
+                                    Bloc A
                                 </p>
                             </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>09:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans '1-Minute Pitches & Team Formation (do <emph>not forget to post on Devpost!)'|escape             %}
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>09:30 PM - 10:00PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Light dinner'|escape             %}
-                                </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>09:30 PM-10:25 PM</strong></p>
-                            <p class="activity workshop">
-                                <!-- <p class="workshop">Workshop</p> -->
-                                <!-- <p class="activity-item"> -->
-                                {% trans '<strong>3D Printing</strong> by Connie Leung'|escape %}
-                                <!-- </p> -->
+                            <p class="time"><strong>11:00 - 11:45</strong></p>
+                                <p class="activity workshop">
+                                    Bloc B
                             </p>
                         </div>
                     </div>
-                     <div class="row">
+                    <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>10:00 PM</strong></p>
+                            <p class="time"><strong>12:00 - 12:45</strong></p>
                                 <p class="activity">
-                                <strong>
-                                    {% trans "Let's Hack!" %}
-                                </strong>
+                                    Discours sur le leadership donné par <b>Dre. Maxine Dumas Pilon</b> sans affiliation à la CQMF </br>
+                                    Discours de la <b>CQMF</b> </br> Remise du prix de la relève
                                 </p>
-                            </div>
-                    </div>
-                     <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>11:00 PM</strong></p>
-                                <p class="activity">
-                                <strong>
-                                    {% trans "Hardware labs open" %}
-                                </strong>
-                                </p>
-                            </div>
-                    </div>
-
-                    <!-- <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1  text-center">
-                            <p><emph>{% trans 'Overnight Snack' %}</emph></p>
                         </div>
-                    </div> -->
+                    </div>
+                    
                 </div>
             </div>
             <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 text-center">
-                <h4 class="service-heading"><span>{% trans 'Saturday, Oct 3rd' %}</span></h4>
+                <h4 class="service-heading"><span>Après-Midi</span></h4>
                 <div style="text-align:left; max-width:600px; margin:auto;">
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>09:00 AM</strong></p>
+                            <p class="time"><strong>14:00 - 14:45 </strong></p>
+                                <p class="activity workshop"> 
+                               Bloc C
+                                </p>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
+                            <p class="time"><strong>15:00 - 15:45 </strong></p>
+                                <p class="activity workshop"> 
+                               Bloc D
+                                </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
+                            <p class="time"><strong>16:00 - 16:45 </strong></p>
                                 <p class="activity"> 
-                                {% trans 'Bite & Bits (i.e. Breakfast & Workshops)'|escape %}
+                                Discours sur la santé mentale chez les médecins</br> 
+                                Discours de fermeture
                                 </p>
-                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>10:00 AM-10:55 AM</strong></p>
-                                <p class="activity workshop">
-                                    {% trans '<strong>Bringing the Good: What You Can Hack on with Nuance</strong> by Nirvana Tikku, Nuance Communications (TBC)' %}
+                            <p class="time"><strong>17:00 - 19:00 </strong></p>
+                                <p class="activity"> 
+                                Tapas et discussions avec résidents et médecins </br>
+                                Kiosque (Hall d’honneur)
                                 </p>
-                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>11:00 AM-10:45 AM</strong></p>
-                                <p class="activity workshop">
-                                    {% trans '<strong>WebSockets</strong> by Mathieu Gagné, Vigilant Global'|escape %}
+                            <p class="time"><strong>19:00 </strong></p>
+                                <p class="activity"> 
+                                Fin du Symposium
                                 </p>
-                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>12:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Lunch' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>12:30 PM - 01:30 PM</strong></p>
-                                <p class="activity workshop">
-                                    {% trans '<strong>Start-Up Legal 101</strong> by Jamie Benizri, Legal Logik'|escape %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>02:00 PM - 02:50 PM</strong></p>
-                                <p class="activity workshop">
-                                    {% trans '<strong>Product Design</strong> by Marc-Antoine Archambault, Tak Design'|escape %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>3:30 PM</strong></p>
-                                <a class="activity annotated" data-toggle="tooltip" title="WearHacks 'mascot' will be on site to break the stress and relax for the day">
-                                    {% trans 'Breakout session: "Puppy Therapy: Mika"'|escape %}
-                                </a>
-                            </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>06:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Dinner' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>06:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Breakout session: "Musical Bikes" provided by Music Motion' %}
-                                </p>
-                            </div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-3 col-md-offset-0 col-sm-10 col-sm-offset-1 text-center">
-                <h4 class="service-heading"><span>{% trans 'Sunday, Oct 4th' %}</span></h4>
-                <div style="text-align:left; max-width:600px; margin:auto;">
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>09:00 AM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Breakfast' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>12:00 AM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Lunch' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>01:00 PM</strong></p>
-                                <p class="activity">
-                                <strong>
-                                    {% trans 'Hacking Stops! Time to submit.' %}
-                                </strong>
-                                </p>
-                            </div>
-                    </div>
-                     <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>02:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Judging Round 1: Fair style' %}
-                                </p>
-                            </div>
-                    </div>
-                     <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>04:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Judging Round 2: Top 10 present on stage' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>04:50 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Light Dinner' %}
-                                </p>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>05:15 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Deliberations!' %}
-                                </p>
-                            </div>
-                    </div>
-                     <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>05:20 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Awards and Closing Ceremony' %}
-                                </p>
-                            </div>
-                    </div>
-                   <!--  <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
-                            <p class="time"><strong>~06:00 PM</strong></p>
-                                <p class="activity">
-                                    {% trans 'Doors close' %}
-                                </p>
-                            </div>
-                    </div> -->
-                </div>
-            </div>
-            
         </div>
+        <div class="col-xs-10 col-xs-offset-1 text-center">
+                <p><emph>De <strong>12:45 à 13:30</strong>, Temps Libre / Diner / Kiosques</emph></p>
+            </div>
     </div>
 </section>
