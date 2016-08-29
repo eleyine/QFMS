@@ -183,6 +183,8 @@ class SponsorsSection(Section):
 class SponsorItem(models.Model):
     company = models.ForeignKey('Company')
     CATEGORIES = (
+        ('Di', 'Diamant'),
+        ('Pl', 'Platine'),
         ('Or', 'Or'),
         ('Ar', 'Argent'),
         ('Br', 'Bronze'),
