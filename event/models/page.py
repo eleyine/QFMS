@@ -53,6 +53,9 @@ class Cover(Section):
     venue_short_name = models.CharField(max_length=200, blank=True,
         help_text="To display on the event cover")
     show_city = models.BooleanField(default=True)
+    button_text = models.CharField(max_length=30, blank=True)
+    button_url = models.URLField(max_length=300, blank=True)
+
     # section_ptr = models.IntegerField('Section', null=True, primary_key=False)
 
 class About(Section):
