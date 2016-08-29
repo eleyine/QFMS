@@ -6,6 +6,7 @@
                 <div class="col-xs-12 text-center">
                     <h2 class="section-heading hashtag">#{{section.hashtag}}</h2>
                 </div>
+                {% if section.show_tweet_link %}
                 <div class="col-xs-6 col-sm-offset-4 col-sm-2 col-md-offset-5 col-md-1 text-center">
                     <a target="_blank" class="fa fa-twitter fa-3x wow bounceIn" data-wow-delay=".1s"
                         href="https://twitter.com/intent/tweet?text={{tweet_text|urlencode}}&url={{"http://www.SITEWEB.com"|urlencode}}&via=facmedudem"
@@ -15,6 +16,9 @@
                         <a href="https://twitter.com/wearhacks">@WearHacks</a>
                     </p> -->
                 </div>
+                {% endif %}
+                {% if section.show_facebook_link %}
+
                 <div class="col-xs-6 col-sm-offset-0 col-sm-2 col-md-offset-0 col-md-1 text-center">
                     {% comment %}
                     <a target="_blank" href="https://www.facebook.com/dialog/share?
@@ -31,6 +35,7 @@
                     <a target="_blank" href="https://www.facebook.com/wearhacks" 
                       class="fa fa-facebook fa-3x wow bounceIn" data-wow-delay=".1s"></a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </section>
