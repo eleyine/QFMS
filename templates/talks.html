@@ -34,7 +34,9 @@
                 <h3 class="title">{{talk.title}}</h3>
                 <h4 class="muted"> Par 
                 <strong>{% if talk.speaker.website %}
-                    <a href="{{talk.speaker.website}}" target="_blank">{{talk.speaker.first_name}} {{talk.speaker.last_name}}</a>
+                    <a href="{{talk.speaker.website}}" target="_blank">
+                    {{talk.speaker.title}}
+                    {{talk.speaker.first_name}} {{talk.speaker.last_name}}</a>
                 {% else %}
                     {{talk.speaker.first_name}} {{talk.speaker.last_name}}{% endif %}</strong>{% if talk.speaker.role %}, <span class="text-muted">{{ talk.speaker.role }}</span>
                 </h4>

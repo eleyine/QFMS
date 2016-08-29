@@ -101,8 +101,9 @@ class Person(models.Model):
         default=CATEGORIES[0][0],
         )
 
-    first_name = models.CharField(max_length=30, validators=[alpha])
-    last_name = models.CharField(max_length=30, validators=[alpha])
+    title = models.CharField(max_length=10, blank=True)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
 
     GENDER_CHOICES = (
         ('M', _('Male')),
@@ -113,7 +114,8 @@ class Person(models.Model):
     gender = models.CharField(max_length=20, 
         choices=GENDER_CHOICES, 
         # default=GENDER_CHOICES[0][0],
-        verbose_name=_('gender')
+        verbose_name=_('gender'),
+        blank=True,
         )
 
     profile_pic = models.ImageField(blank=True, 
