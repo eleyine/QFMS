@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator
 from event.helpers import get_profile_pic_filename, get_image_filename
 
 class SocialMediaAccount(models.Model):
-    username = models.CharField(max_length=30,
+    username = models.CharField(max_length=40,
         help_text='If email address, add email here')
     url = models.URLField(max_length=100, blank=True)
 
